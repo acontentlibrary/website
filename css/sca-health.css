@@ -749,15 +749,15 @@
         overflow-x: hidden;
     }
     
-    /* Hide only the preview window on mobile, keep the thumbnails */
+    /* Completely hide preview window on mobile */
+    .preview-area .landscape-preview {
+        display: none;
+    }
+    
+    /* Keep only the landscape thumbnails visible */
     .preview-area {
         max-width: 100%;
         overflow-x: hidden;
-        order: 1;
-    }
-    
-    .landscape-preview {
-        display: none;
     }
     
     .content-grid {
@@ -831,39 +831,49 @@
         transform: scale(0.95);
     }
     
-    /* Mobile photo carousel - scrollable with arrows */
+    /* Mobile photo carousel - single scrollable row */
     .photos-section {
         margin-top: 30px;
         display: flex;
         align-items: center;
-        gap: 8px;
+        gap: 12px;
+        padding: 0 16px;
     }
     
     .photos-grid {
-        max-width: 100%;
+        display: flex;
+        gap: 8px;
         overflow-x: auto;
         scroll-behavior: smooth;
         flex: 1;
         -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding: 10px 0;
     }
     
     .photos-grid::-webkit-scrollbar {
         display: none;
     }
     
+    /* Convert 3-row grid to single scrollable row on mobile */
     .photo-row {
-        justify-content: flex-start;
-        gap: 6px;
-        margin-bottom: 6px;
-        flex-wrap: nowrap;
+        display: flex;
+        gap: 8px;
+        margin-bottom: 0;
         min-width: max-content;
     }
     
+    .photo-row.middle-row,
+    .photo-row.bottom-row {
+        display: none;
+    }
+    
     .photo-thumb {
-        width: 50px;
-        height: 38px;
+        width: 60px;
+        height: 45px;
         flex: none;
-        border-radius: 4px;
+        border-radius: 6px;
+        object-fit: cover;
     }
     
     /* Mobile-friendly scroll arrows */
