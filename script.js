@@ -420,10 +420,19 @@ function updatePhotoDisplay() {
     // Check if mobile (screen width < 768px)
     if (window.innerWidth < 768) {
         // Mobile: Create single row with all photos
-        const topRow = photoRows[0];
-        if (topRow) {
-            // Clear existing photos
-            topRow.innerHTML = '';
+        const photosGrid = document.querySelector('.photos-grid');
+        if (photosGrid) {
+            // Clear all existing rows and create single row
+            photosGrid.innerHTML = '';
+            
+            const singleRow = document.createElement('div');
+            singleRow.className = 'photo-row single-row';
+            singleRow.style.cssText = `
+                display: flex;
+                gap: 8px;
+                min-width: max-content;
+                white-space: nowrap;
+            `;
             
             // Add all photos to single row
             photos.forEach((photo, index) => {
@@ -431,11 +440,21 @@ function updatePhotoDisplay() {
                 img.src = `https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/2_SCA-Health/Content-Library-Showcase/Photos/${photo}`;
                 img.alt = `Photo ${index + 1}`;
                 img.className = 'photo-thumb';
+                img.style.cssText = `
+                    width: 60px;
+                    height: 45px;
+                    flex: none;
+                    border-radius: 6px;
+                    object-fit: cover;
+                    cursor: pointer;
+                `;
                 img.setAttribute('data-photo', index + 1);
                 img.onclick = () => expandPhoto(img);
                 img.loading = 'lazy';
-                topRow.appendChild(img);
+                singleRow.appendChild(img);
             });
+            
+            photosGrid.appendChild(singleRow);
         }
         return;
     }
