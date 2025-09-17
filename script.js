@@ -654,15 +654,36 @@ function playVerticalVideo(videoNumber) {
 }
 
 
-// Load video thumbnails immediately on page load - optimized for mobile
+// Load video thumbnails - hero video loads immediately, others load on scroll (mobile)
 function loadVideoThumbnails() {
     console.log('Loading video thumbnails with mobile optimization...');
     
-    // Find all videos in the process sections
-    const allVideos = document.querySelectorAll('.landscape-video video, .portrait-video video, .career-journey-video video, .flagship-video video');
+    // Hero video - always load immediately
+    const heroVideo = document.getElementById('sca-hero-video');
+    if (heroVideo) {
+        console.log('Loading hero video immediately...');
+        heroVideo.setAttribute('playsinline', 'true');
+        heroVideo.setAttribute('muted', 'true');
+        heroVideo.setAttribute('webkit-playsinline', 'true');
+        heroVideo.preload = 'metadata';
+        
+        heroVideo.addEventListener('loadedmetadata', () => {
+            console.log('Hero video metadata loaded, seeking to first frame...');
+            heroVideo.currentTime = 0.1;
+            setTimeout(() => {
+                heroVideo.currentTime = 0;
+                console.log('Hero video thumbnail ready');
+            }, 50);
+        }, { once: true });
+        
+        heroVideo.load();
+    }
     
-    allVideos.forEach((video, index) => {
-        console.log(`Loading thumbnail for video ${index + 1}:`, video);
+    // Process section videos - optimize based on device
+    const processVideos = document.querySelectorAll('.landscape-video video, .portrait-video video, .career-journey-video video, .flagship-video video');
+    
+    processVideos.forEach((video, index) => {
+        console.log(`Loading process video ${index + 1}:`, video);
         
         // Enhanced mobile optimizations
         video.setAttribute('playsinline', 'true');
@@ -671,26 +692,25 @@ function loadVideoThumbnails() {
         
         // Different strategy for mobile vs desktop
         if (window.innerWidth < 768) {
-            // Mobile: More aggressive optimization
+            // Mobile: Lazy load process videos
             video.preload = 'none';
             video.style.backgroundColor = '#f0f0f0';
             
-            // Load on user interaction or intersection
             const loadVideoThumbnail = () => {
                 video.preload = 'metadata';
                 video.load();
                 
                 video.addEventListener('loadeddata', () => {
-                    console.log(`Mobile video ${index + 1} data loaded`);
+                    console.log(`Mobile process video ${index + 1} data loaded`);
                     video.currentTime = 0.1;
                     setTimeout(() => {
                         video.currentTime = 0;
-                        console.log(`Mobile video ${index + 1} thumbnail ready`);
+                        console.log(`Mobile process video ${index + 1} thumbnail ready`);
                     }, 50);
                 }, { once: true });
             };
             
-            // Use intersection observer for mobile
+            // Use intersection observer for process videos on mobile
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -703,16 +723,16 @@ function loadVideoThumbnails() {
             observer.observe(video);
             
         } else {
-            // Desktop: Original behavior
+            // Desktop: Load all videos immediately
             video.preload = 'metadata';
             
             video.addEventListener('loadedmetadata', () => {
-                console.log(`Desktop video ${index + 1} metadata loaded, seeking to first frame...`);
+                console.log(`Desktop process video ${index + 1} metadata loaded, seeking to first frame...`);
                 video.currentTime = 0.1;
                 
                 setTimeout(() => {
                     video.currentTime = 0;
-                    console.log(`Desktop video ${index + 1} thumbnail ready`);
+                    console.log(`Desktop process video ${index + 1} thumbnail ready`);
                 }, 100);
             }, { once: true });
             
@@ -721,7 +741,7 @@ function loadVideoThumbnails() {
         
         // Handle loading errors
         video.addEventListener('error', (e) => {
-            console.error(`Video ${index + 1} failed to load:`, e);
+            console.error(`Process video ${index + 1} failed to load:`, e);
         });
     });
 }
