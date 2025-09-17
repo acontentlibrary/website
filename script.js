@@ -656,7 +656,7 @@ function playVerticalVideo(videoNumber) {
 
 // Load video thumbnails immediately on page load - optimized for mobile
 function loadVideoThumbnails() {
-    console.log('Loading video thumbnails immediately...');
+    console.log('Loading video thumbnails with mobile optimization...');
     
     // Find all videos in the process sections
     const allVideos = document.querySelectorAll('.landscape-video video, .portrait-video video, .career-journey-video video, .flagship-video video');
@@ -664,29 +664,65 @@ function loadVideoThumbnails() {
     allVideos.forEach((video, index) => {
         console.log(`Loading thumbnail for video ${index + 1}:`, video);
         
-        // Mobile optimizations
+        // Enhanced mobile optimizations
         video.setAttribute('playsinline', 'true');
         video.setAttribute('muted', 'true');
-        video.preload = 'metadata';
+        video.setAttribute('webkit-playsinline', 'true');
         
-        // Load thumbnail immediately
-        video.addEventListener('loadedmetadata', () => {
-            console.log(`Video ${index + 1} metadata loaded, seeking to first frame...`);
-            video.currentTime = 0.1;
+        // Different strategy for mobile vs desktop
+        if (window.innerWidth < 768) {
+            // Mobile: More aggressive optimization
+            video.preload = 'none';
+            video.style.backgroundColor = '#f0f0f0';
             
-            setTimeout(() => {
-                video.currentTime = 0;
-                console.log(`Video ${index + 1} thumbnail ready`);
-            }, 100);
-        }, { once: true });
+            // Load on user interaction or intersection
+            const loadVideoThumbnail = () => {
+                video.preload = 'metadata';
+                video.load();
+                
+                video.addEventListener('loadeddata', () => {
+                    console.log(`Mobile video ${index + 1} data loaded`);
+                    video.currentTime = 0.1;
+                    setTimeout(() => {
+                        video.currentTime = 0;
+                        console.log(`Mobile video ${index + 1} thumbnail ready`);
+                    }, 50);
+                }, { once: true });
+            };
+            
+            // Use intersection observer for mobile
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        loadVideoThumbnail();
+                        observer.unobserve(video);
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            observer.observe(video);
+            
+        } else {
+            // Desktop: Original behavior
+            video.preload = 'metadata';
+            
+            video.addEventListener('loadedmetadata', () => {
+                console.log(`Desktop video ${index + 1} metadata loaded, seeking to first frame...`);
+                video.currentTime = 0.1;
+                
+                setTimeout(() => {
+                    video.currentTime = 0;
+                    console.log(`Desktop video ${index + 1} thumbnail ready`);
+                }, 100);
+            }, { once: true });
+            
+            video.load();
+        }
         
         // Handle loading errors
         video.addEventListener('error', (e) => {
             console.error(`Video ${index + 1} failed to load:`, e);
         });
-        
-        // Force load
-        video.load();
     });
 }
 
