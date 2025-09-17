@@ -749,8 +749,14 @@
         overflow-x: hidden;
     }
     
-    /* Hide preview window on mobile */
+    /* Hide only the preview window on mobile, keep the thumbnails */
     .preview-area {
+        max-width: 100%;
+        overflow-x: hidden;
+        order: 1;
+    }
+    
+    .landscape-preview {
         display: none;
     }
     
