@@ -134,6 +134,25 @@
 }
 
 @media (max-width: 768px) {
+    /* Fix header on mobile for SCA Health page */
+    .nav {
+        padding: 0 1rem !important;
+        gap: 1rem !important;
+    }
+    
+    .nav-brand {
+        font-size: 20px !important;
+    }
+    
+    .nav-menu {
+        display: none !important;
+    }
+    
+    .btn-primary {
+        padding: 6px 12px !important;
+        font-size: 12px !important;
+    }
+    
     .sca-health-hero {
         padding: 80px 32px 60px;
     }
@@ -643,11 +662,24 @@
     .process-step:nth-child(3) .step-content {
         padding: 0 32px;
         margin: 0 auto;
+        text-align: center;
     }
     
     .process-step:nth-child(4) .step-content {
         padding: 0 32px;
         margin: 0 auto;
+        text-align: center;
+    }
+    
+    /* Center all process steps on mobile */
+    .process-step .step-content {
+        text-align: center;
+        align-items: center;
+    }
+    
+    .step-info {
+        text-align: center;
+        max-width: 100%;
     }
     
     .section-header h2 {
@@ -686,15 +718,35 @@
     }
     
     /* Fix content library mobile layout */
+    .content-showcase-section {
+        padding: 40px 16px;
+        overflow-x: hidden;
+    }
+    
     .showcase-layout {
         flex-direction: column;
         gap: 30px;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+    
+    .preview-area {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+    
+    .landscape-preview {
+        width: 100%;
+        max-width: 100%;
+        aspect-ratio: 16/9;
+        margin-bottom: 16px;
     }
     
     .content-grid {
         flex: none;
         max-width: 100%;
-        gap: 30px;
+        gap: 20px;
+        overflow-x: hidden;
     }
     
     .vertical-video-section {
@@ -715,25 +767,38 @@
     
     .landscape-thumbnails {
         justify-content: center;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+    
+    .thumbnail-container {
+        max-width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 8px;
     }
     
     .video-thumb.landscape {
-        width: 140px;
-        height: 79px;
+        width: 100px;
+        height: 56px;
+        flex: none;
     }
     
     .photos-grid {
         max-width: 100%;
+        overflow-x: hidden;
     }
     
     .photo-row {
         justify-content: center;
         flex-wrap: wrap;
+        gap: 4px;
+        max-width: 100%;
     }
     
     .photo-thumb {
-        width: 50px;
-        height: 38px;
+        width: 45px;
+        height: 34px;
         flex: none;
     }
     
