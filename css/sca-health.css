@@ -770,16 +770,26 @@
         order: 2;
     }
     
-    /* Stack landscape thumbnails in a simple row */
+    /* Mobile landscape video carousel - scrollable */
     .landscape-thumbnails {
         margin-bottom: 30px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
     }
     
     .thumbnail-container {
         display: flex;
-        justify-content: center;
         gap: 8px;
-        flex-wrap: wrap;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        padding: 10px 0;
+        flex: 1;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .thumbnail-container::-webkit-scrollbar {
+        display: none;
     }
     
     /* Mobile-friendly vertical videos - show in a row */
@@ -813,41 +823,32 @@
         flex: none;
     }
     
-    /* Redesign photo grid for mobile - show fewer photos in organized rows */
+    /* Mobile photo carousel - scrollable with arrows */
     .photos-section {
         margin-top: 30px;
-    }
-    
-    .photos-section h3 {
-        text-align: center;
-        margin-bottom: 15px;
-        font-size: 18px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
     }
     
     .photos-grid {
         max-width: 100%;
-        overflow-x: hidden;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        flex: 1;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .photos-grid::-webkit-scrollbar {
+        display: none;
     }
     
     .photo-row {
-        justify-content: center;
+        justify-content: flex-start;
         gap: 6px;
         margin-bottom: 6px;
         flex-wrap: nowrap;
-        overflow-x: auto;
-        padding: 0 10px;
-    }
-    
-    .photo-row.top-row {
-        justify-content: center;
-    }
-    
-    .photo-row.middle-row {
-        justify-content: center;
-    }
-    
-    .photo-row.bottom-row {
-        justify-content: center;
+        min-width: max-content;
     }
     
     .photo-thumb {
@@ -857,9 +858,18 @@
         border-radius: 4px;
     }
     
-    /* Hide scroll arrows on mobile - not needed with simplified layout */
+    /* Mobile-friendly scroll arrows */
     .scroll-arrow {
-        display: none;
+        width: 36px;
+        height: 36px;
+        font-size: 16px;
+        background: rgba(0, 0, 0, 0.1);
+        border-radius: 50%;
+        flex: none;
+    }
+    
+    .scroll-arrow:hover {
+        background: rgba(0, 0, 0, 0.2);
     }
     
     /* Ensure no horizontal scrolling */
