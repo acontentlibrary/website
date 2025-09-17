@@ -410,7 +410,7 @@ function updatePhotoDisplay() {
         for (let i = 0; i < 5; i++) {
             const photoIndex = currentPhotoIndex + photoPosition;
             if (images[i] && photos[photoIndex]) {
-                images[i].src = `Media/2_SCA-Health/Content-Library-Showcase/Photos/${photos[photoIndex]}`;
+                images[i].src = `https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/2_SCA-Health/Content-Library-Showcase/Photos/${photos[photoIndex]}`;
                 images[i].setAttribute('data-photo', photoPosition + 1);
             }
             photoPosition++;
@@ -424,7 +424,7 @@ function updatePhotoDisplay() {
         for (let i = 0; i < 6; i++) {
             const photoIndex = currentPhotoIndex + photoPosition;
             if (images[i] && photos[photoIndex]) {
-                images[i].src = `Media/2_SCA-Health/Content-Library-Showcase/Photos/${photos[photoIndex]}`;
+                images[i].src = `https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/2_SCA-Health/Content-Library-Showcase/Photos/${photos[photoIndex]}`;
                 images[i].setAttribute('data-photo', photoPosition + 1);
             }
             photoPosition++;
@@ -438,7 +438,7 @@ function updatePhotoDisplay() {
         for (let i = 0; i < 5; i++) {
             const photoIndex = currentPhotoIndex + photoPosition;
             if (images[i] && photos[photoIndex]) {
-                images[i].src = `Media/2_SCA-Health/Content-Library-Showcase/Photos/${photos[photoIndex]}`;
+                images[i].src = `https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/2_SCA-Health/Content-Library-Showcase/Photos/${photos[photoIndex]}`;
                 images[i].setAttribute('data-photo', photoPosition + 1);
             }
             photoPosition++;
