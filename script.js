@@ -28,7 +28,14 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Load random preview video for content showcase
     if (document.getElementById('landscape-preview')) {
-        loadRandomPreviewVideo();
+        // Check if mobile and create proper landscape section
+        if (window.innerWidth < 768) {
+            createMobileLandscapeSection();
+            // Force load video thumbnails on mobile
+            loadVideoThumbnails();
+        } else {
+            loadRandomPreviewVideo();
+        }
         // Initialize randomized displays
         updateLandscapeDisplay();
         updateVerticalDisplay();
@@ -437,42 +444,25 @@ function updatePhotoDisplay() {
     
     // Check if mobile (screen width < 768px)
     if (window.innerWidth < 768) {
-        // Mobile: Create single row with all photos
-        const photosGrid = document.querySelector('.photos-grid');
-        if (photosGrid) {
-            // Clear all existing rows and create single row
-            photosGrid.innerHTML = '';
+        // Mobile: Use existing first row but populate with all photos
+        const topRow = document.querySelector('.photo-row.top-row');
+        if (topRow) {
+            // Clear existing photos and add all 103 photos
+            topRow.innerHTML = '';
             
-            const singleRow = document.createElement('div');
-            singleRow.className = 'photo-row single-row';
-            singleRow.style.cssText = `
-                display: flex;
-                gap: 8px;
-                min-width: max-content;
-                white-space: nowrap;
-            `;
-            
-            // Add all photos to single row
+            // Add all photos to the single row
             photos.forEach((photo, index) => {
                 const img = document.createElement('img');
                 img.src = `https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/2_SCA-Health/Content-Library-Showcase/Photos/${photo}`;
                 img.alt = `Photo ${index + 1}`;
                 img.className = 'photo-thumb';
-                img.style.cssText = `
-                    width: 60px;
-                    height: 45px;
-                    flex: none;
-                    border-radius: 6px;
-                    object-fit: cover;
-                    cursor: pointer;
-                `;
                 img.setAttribute('data-photo', index + 1);
                 img.onclick = () => expandPhoto(img);
                 img.loading = 'lazy';
-                singleRow.appendChild(img);
+                topRow.appendChild(img);
             });
             
-            photosGrid.appendChild(singleRow);
+            console.log(`Created ${photos.length} photos in mobile horizontal row`);
         }
         return;
     }
@@ -658,6 +648,137 @@ function playVerticalVideo(videoNumber) {
     }
 }
 
+
+// Load video thumbnails immediately on page load - optimized for mobile
+function loadVideoThumbnails() {
+    console.log('Loading video thumbnails immediately...');
+    
+    // Find all videos in the process sections
+    const allVideos = document.querySelectorAll('.landscape-video video, .portrait-video video, .career-journey-video video, .flagship-video video');
+    
+    allVideos.forEach((video, index) => {
+        console.log(`Loading thumbnail for video ${index + 1}:`, video);
+        
+        // Mobile optimizations
+        video.setAttribute('playsinline', 'true');
+        video.setAttribute('muted', 'true');
+        video.preload = 'metadata';
+        
+        // Load thumbnail immediately
+        video.addEventListener('loadedmetadata', () => {
+            console.log(`Video ${index + 1} metadata loaded, seeking to first frame...`);
+            video.currentTime = 0.1;
+            
+            setTimeout(() => {
+                video.currentTime = 0;
+                console.log(`Video ${index + 1} thumbnail ready`);
+            }, 100);
+        }, { once: true });
+        
+        // Handle loading errors
+        video.addEventListener('error', (e) => {
+            console.error(`Video ${index + 1} failed to load:`, e);
+        });
+        
+        // Force load
+        video.load();
+    });
+}
+
+// Create mobile landscape section that mirrors vertical video structure
+function createMobileLandscapeSection() {
+    const contentGrid = document.querySelector('.content-grid');
+    if (contentGrid) {
+        // Create landscape section HTML that mirrors vertical videos
+        const landscapeSection = document.createElement('div');
+        landscapeSection.className = 'mobile-landscape-video-section';
+        landscapeSection.innerHTML = `
+            <button class="scroll-arrow left" onclick="scrollMobileLandscapeVideos('left')">‹</button>
+            <div class="mobile-landscape-thumbnails">
+                <div class="video-thumb landscape mobile-landscape" data-video="1" onclick="openVideoModal('landscape-01.mp4')">
+                    <video muted preload="metadata">
+                        <source src="https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/2_SCA-Health/Content-Library-Showcase/Landscape-Videos/landscape-01.mp4" type="video/mp4">
+                    </video>
+                    <div class="play-overlay">▶</div>
+                </div>
+            </div>
+            <button class="scroll-arrow right" onclick="scrollMobileLandscapeVideos('right')">›</button>
+        `;
+        
+        // Add CSS styling to match vertical videos
+        landscapeSection.style.cssText = `
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 0 20px;
+            margin-bottom: 30px;
+            gap: 20px;
+            box-sizing: border-box;
+        `;
+        
+        // Insert at the beginning of content-grid
+        contentGrid.insertBefore(landscapeSection, contentGrid.firstChild);
+        
+        // Force load thumbnail for the first video immediately
+        setTimeout(() => {
+            const firstVideo = landscapeSection.querySelector('video');
+            if (firstVideo) {
+                console.log('Loading first landscape video thumbnail...');
+                firstVideo.preload = 'metadata';
+                firstVideo.addEventListener('loadedmetadata', () => {
+                    firstVideo.currentTime = 0.1;
+                    setTimeout(() => {
+                        firstVideo.currentTime = 0;
+                        console.log('First landscape video thumbnail loaded');
+                    }, 100);
+                }, { once: true });
+                firstVideo.load();
+            }
+        }, 100);
+    }
+}
+
+let mobileLandscapeIndex = 0;
+
+// Scroll mobile landscape videos
+function scrollMobileLandscapeVideos(direction) {
+    console.log('Mobile landscape scroll called:', direction);
+    console.log('Current index before:', mobileLandscapeIndex);
+    
+    if (direction === 'left') {
+        mobileLandscapeIndex = (mobileLandscapeIndex - 1 + landscapeVideos.length) % landscapeVideos.length;
+    } else {
+        mobileLandscapeIndex = (mobileLandscapeIndex + 1) % landscapeVideos.length;
+    }
+    
+    console.log('New index after:', mobileLandscapeIndex);
+    console.log('New video should be:', landscapeVideos[mobileLandscapeIndex]);
+    
+    // Update the displayed video
+    const videoThumb = document.querySelector('.mobile-landscape-video-section .video-thumb');
+    console.log('Found video thumb:', videoThumb);
+    
+    if (videoThumb) {
+        const video = videoThumb.querySelector('video');
+        const source = video?.querySelector('source');
+        
+        if (source && video) {
+            const newVideo = landscapeVideos[mobileLandscapeIndex];
+            const newSrc = `https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/2_SCA-Health/Content-Library-Showcase/Landscape-Videos/${newVideo}`;
+            
+            console.log('Updating video src to:', newSrc);
+            source.src = newSrc;
+            video.load();
+            videoThumb.setAttribute('onclick', `openVideoModal('${newVideo}')`);
+            console.log('Video updated successfully');
+        } else {
+            console.error('Could not find video or source element');
+        }
+    } else {
+        console.error('Could not find video thumb element');
+    }
+}
 
 // Mobile full-screen video modal
 function openVideoModal(videoFileName) {
