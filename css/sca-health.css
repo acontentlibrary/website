@@ -54,8 +54,9 @@
     align-items: center;
     justify-content: center;
     width: 1000px;
+    max-width: 100%;
     position: relative;
-    flex-shrink: 0;
+    flex-shrink: 1;
 }
 
 .sca-health-hero .video-container {
@@ -102,6 +103,34 @@
 .sca-health-hero .unmute-button svg {
     color: white;
     transition: opacity 0.3s ease;
+}
+
+@media (max-width: 1200px) {
+    .sca-health-hero {
+        padding: 100px 48px 60px;
+    }
+    
+    .sca-health-hero .hero-content {
+        gap: 48px;
+    }
+    
+    .sca-health-hero .hero-video {
+        width: 800px;
+        max-width: 100%;
+    }
+    
+    .sca-health-hero .hero-text h1 {
+        font-size: 80px;
+        line-height: 80px;
+        letter-spacing: -4px;
+    }
+    
+    .sca-health-hero .hero-text p {
+        font-size: 22px;
+        line-height: 32px;
+        width: 600px;
+        max-width: 100%;
+    }
 }
 
 @media (max-width: 768px) {
