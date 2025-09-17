@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Content Library</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/homepage.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <div class="brand-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="2" y="3" width="20" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
+                        <path d="M8 21l8 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M12 17l0 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M7 8l10 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M7 12l7 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M7 16l4 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <span class="brand-text">A Content Library</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#case-studies">Case Studies</a></li>
+            </ul>
+            <button class="btn-primary" onclick="window.location.href='mailto:joey@joeyschiappa.com'">Contact</button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-text">
+            <h1>
+                <span class="line-1">A Content</span>
+                <span class="line-2">Library</span>
+            </h1>
+            <p>We <strong>Make</strong> the content, <strong>Manage</strong> the library, and <strong>Market</strong> the media to reach, engage, and convert your audience where it matters most.</p>
+            <button class="btn-primary" onclick="window.location.href='mailto:joey@joeyschiappa.com'">Contact</button>
+        </div>
+        <div class="hero-video">
+            <div class="video-player" id="video-player">
+                <video id="story-video" muted autoplay>
+                    <source src="https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/1_HomePage/Hunter Douglas_1.mov" type="video/quicktime">
+                    <source src="https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/1_HomePage/Hunter Douglas_1.mov" type="video/mp4">
+                </video>
+                <div class="video-overlay"></div>
+                <div class="video-progress">
+                    <div class="progress-bar active" data-video="0"></div>
+                    <div class="progress-bar" data-video="1"></div>
+                    <div class="progress-bar" data-video="2"></div>
+                </div>
+                <div class="video-user">
+                    <div class="user-avatar"></div>
+                    <span class="user-name" id="story-username">Hunter Douglas</span>
+                    <span class="user-time">6h</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies Showcase Section -->
+    <section class="case-studies-showcase" id="case-studies">
+        <div class="showcase-header">
+            <span class="label">Our Work</span>
+            <h2>Recent Case Studies</h2>
+            <p>Explore how we've helped brands create compelling content ecosystems that drive engagement and deliver results.</p>
+        </div>
+        
+        <div class="case-studies-grid-home">
+            <div class="case-study-card-home" onclick="window.location.href='case-study-sca-health.html'">
+                <div class="case-study-media-home">
+                    <img src="https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/2_SCA-Health/thumbnail.JPG" alt="SCA Health Case Study" class="case-study-thumbnail-home">
+                </div>
+                <div class="case-study-info-home">
+                    <span class="case-study-category-home">Healthcare</span>
+                    <h3>SCA Health</h3>
+                    <p>Building an employee-story series and flagship values film that earned Bell Seal (Gold) recognition.</p>
+                </div>
+            </div>
+
+            <div class="case-study-card-home" onclick="window.location.href='case-study-mcdonalds.html'">
+                <div class="case-study-media-home">
+                    <img src="https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/3_McDonalds/thumbnail.jpg" alt="McDonald's Case Study" class="case-study-thumbnail-home">
+                </div>
+                <div class="case-study-info-home">
+                    <span class="case-study-category-home">Corporate</span>
+                    <h3>McDonald's</h3>
+                    <p>Developing a comprehensive visual archive of signage across the United States through strategic geo-planning.</p>
+                </div>
+            </div>
+
+            <div class="case-study-card-home" onclick="window.location.href='case-study-hunter-douglas.html'">
+                <div class="case-study-media-home">
+                    <img src="https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/4_Hunter Douglas/thumbnail.png" alt="Hunter Douglas Case Study" class="case-study-thumbnail-home">
+                </div>
+                <div class="case-study-info-home">
+                    <span class="case-study-category-home">Brand Content</span>
+                    <h3>Hunter Douglas</h3>
+                    <p>Creating compelling product showcases and brand storytelling that drives customer engagement.</p>
+                </div>
+            </div>
+
+            <div class="case-study-card-home" onclick="window.location.href='case-study-hbic.html'">
+                <div class="case-study-media-home">
+                    <img src="https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/5_Head Bartender In Charge/thumbnail.png" alt="Head Bartender in Charge Case Study" class="case-study-thumbnail-home">
+                </div>
+                <div class="case-study-info-home">
+                    <span class="case-study-category-home">Hospitality</span>
+                    <h3>Head Bartender in Charge</h3>
+                    <p>Showcasing the artistry and personality behind craft cocktail culture through dynamic content.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="showcase-cta">
+            <a href="case-studies.html" class="btn-secondary">Learn More</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <span class="label">Our Services</span>
+        <h2 class="section-title">Make · Manage · Market<br><span class="subtitle">pick your level</span></h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="card-header">
+                    <h3>MAKE</h3>
+                    <p class="card-subtitle">For teams that need assets.</p>
+                </div>
+                <div class="card-content">
+                    <ul class="feature-list">
+                        <li>Strategy & shot list</li>
+                        <li>On-site video + photo</li>
+                        <li>Flagship cut + 4–8 shorts</li>
+                        <li>10–30 edited photos</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="service-card popular">
+                <div class="popular-badge">Most popular</div>
+                <div class="card-header">
+                    <h3>MANAGE</h3>
+                    <p class="card-subtitle">For teams that want it handled.</p>
+                </div>
+                <div class="card-content">
+                    <ul class="feature-list">
+                        <li>Everything in Make</li>
+                        <li>Centralized library</li>
+                        <li>Posting calendar + copy</li>
+                        <li>Monthly snapshot</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="card-header">
+                    <h3>MARKET</h3>
+                    <p class="card-subtitle">For teams that want growth.</p>
+                </div>
+                <div class="card-content">
+                    <ul class="feature-list">
+                        <li>Everything in Manage</li>
+                        <li>Paid campaigns</li>
+                        <li>Targeting + retargeting</li>
+                        <li>Weekly dashboard</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="services-cta">
+            <button class="btn-primary" onclick="window.location.href='mailto:joey@joeyschiappa.com'">Contact</button>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <span class="label">How we work</span>
+        <h2>Media<br>Where & When It's Needed</h2>
+        
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <img src="f45756be09eed9723ab881d8b8e07f3abb266451.svg" alt="Strategy icon">
+                </div>
+                <h3>Strategy First</h3>
+                <p>We align on goals, audience, and content<br>
+                direction before anything goes live.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <img src="043150713b29f586d723a91c52012fa4eb01735c.svg" alt="Create & Manage icon">
+                </div>
+                <h3>Create & Manage</h3>
+                <p>We handle the production, scheduling,<br>
+                and posting across all key platforms.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <img src="document-icon.svg" alt="Review & Refine icon">
+                </div>
+                <h3>Review & Refine</h3>
+                <p>We track performance, learn what's<br>
+                working, and adjust as needed.</p>
+            </div>
+        </div>
+        
+        <!-- Connecting lines -->
+        <div class="connecting-lines">
+            <img src="e7c6d0f29f622d53bcb0d452cf8c4719c1490c00.svg" alt="Connecting lines">
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="testimonial">
+        <span class="label">Why Us</span>
+        <div class="testimonial-content">
+            <div class="quote-card">
+                <div class="quote-mark">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="40" height="40" rx="8" fill="black"/>
+                        <path d="M12 18C12 16.8954 12.8954 16 14 16H16C17.1046 16 18 16.8954 18 18V20C18 21.1046 17.1046 22 16 22H14C12.8954 22 12 21.1046 12 20V18Z" fill="white"/>
+                        <path d="M22 18C22 16.8954 22.8954 16 24 16H26C27.1046 16 28 16.8954 28 18V20C18 21.1046 27.1046 22 26 22H24C22.8954 22 22 21.1046 22 20V18Z" fill="white"/>
+                        <path d="M14 22C14 24.2091 15.7909 26 18 26" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+                        <path d="M24 22C24 24.2091 25.7909 26 28 26" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <blockquote>
+                    <p>From mobile first, quick-turn social to full-scale productions, they are true partners and problem-solvers that push boundaries, remove hurdles, and always find a way to make it work.</p>
+                    <cite>Charlotte Parker • Hunter Douglas</cite>
+                </blockquote>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section (Temporarily Hidden) -->
+    <section class="team hidden-section" id="team">
+        <span class="label">Our team</span>
+        <h2>Meet the team<br>behind your <em>success</em></h2>
+        
+        <div class="team-grid">
+            <div class="team-member">
+                <div class="member-photo member-1"></div>
+                <h3>James Collins</h3>
+            </div>
+            <div class="team-member">
+                <div class="member-photo member-2"></div>
+                <h3>Mary Starkman</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Temporarily Hidden) -->
+    <footer class="footer hidden-section">
+        <div class="faq-section">
+            <div class="quote-mark">◉</div>
+            <h2>Frequently<br>Asked Questions</h2>
+            
+            <ul class="faq-list">
+                <li>How does it work?</li>
+                <li>What can you do for us?</li>
+                <li>How do we communicate?</li>
+                <li>What do you expect from us?</li>
+                <li>How long does it take?</li>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

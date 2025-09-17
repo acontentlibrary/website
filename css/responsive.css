@@ -1,0 +1,182 @@
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .hero {
+        gap: 48px;
+    }
+    
+    .hero-text h1 {
+        font-size: 80px;
+        line-height: 80px;
+        height: 160px;
+    }
+    
+    .hero-text h1 .line-2 {
+        top: 79.5px;
+    }
+    
+    .hero-text p {
+        font-size: 20px;
+        line-height: 30px;
+        max-width: 600px;
+    }
+    
+    .hero-video {
+        width: 280px;
+    }
+    
+    .video-player {
+        height: 480px;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+    
+    .nav-menu {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .hero {
+        padding: 80px 32px 40px;
+        flex-direction: column;
+        gap: 32px;
+        justify-content: center;
+    }
+    
+    .hero-text {
+        text-align: center;
+        align-items: center;
+        flex: none;
+        max-width: 100%;
+    }
+    
+    .hero-text h1 {
+        font-size: 60px;
+        line-height: 60px;
+        height: 120px;
+    }
+    
+    .hero-text p {
+        width: 100%;
+        max-width: 100%;
+        font-size: 18px;
+        line-height: 27px;
+    }
+    
+    .hero-video {
+        flex: none;
+        width: 250px;
+        align-self: center;
+    }
+    
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .service-card {
+        padding: 1.5rem;
+    }
+    
+    .card-header h3 {
+        font-size: 1.3rem;
+    }
+    
+    .team-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .faq-section {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .testimonial-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .testimonial blockquote p {
+        font-size: 2rem;
+    }
+    
+    .section-title,
+    .case-study h2,
+    .features h2,
+    .team h2,
+    .faq-section h2 {
+        font-size: 2rem;
+    }
+    
+    .case-study-container {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .case-study-content {
+        text-align: center;
+    }
+    
+    /* Case Studies Mobile Styles */
+    .case-studies-hero h1 {
+        font-size: 3rem;
+    }
+    
+    .case-studies-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .case-study-card.placeholder {
+        grid-column: 1;
+        margin-top: 1rem;
+        max-width: none;
+    }
+    
+    .cta-content h2 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-text h1 {
+        display: none;
+    }
+    
+    .hero-text p {
+        font-size: 1rem;
+        margin-top: 1.5rem;
+    }
+    
+    .testimonial blockquote p {
+        font-size: 1.5rem;
+    }
+    
+    .section-title,
+    .case-study h2,
+    .features h2,
+    .team h2,
+    .faq-section h2 {
+        font-size: 1.75rem;
+    }
+    
+    /* Case Studies Mobile Styles */
+    .case-studies-hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .cta-content h2 {
+        font-size: 1.5rem;
+    }
+}

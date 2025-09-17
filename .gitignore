@@ -1,0 +1,5 @@
+.DS_Store
+node_modules
+README.md
+UPLOAD_GUIDE.md
+package.json

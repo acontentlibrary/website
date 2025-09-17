@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCA Health Case Study - A Content Library</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/sca-health.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <div class="brand-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="2" y="3" width="20" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
+                        <path d="M8 21l8 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M12 17l0 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M7 8l10 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M7 12l7 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M7 16l4 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <span class="brand-text">A Content Library</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="case-studies.html">Case Studies</a></li>
+            </ul>
+            <button class="btn-primary" onclick="window.location.href='mailto:joey@joeyschiappa.com'">Contact</button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="sca-health-hero">
+        <div class="hero-content">
+            <div class="hero-text">
+        <h1>SCA Health</h1>
+                <p>Creating a content ecosystem that spotlights employee stories and unifies company values into compelling visual narratives.</p>
+            </div>
+            <div class="hero-video">
+                <div class="video-container">
+                    <video id="sca-hero-video" muted autoplay loop>
+                        <source src="https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/2_SCA-Health/Featured https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/Rebecca_Online.mp4" type="video/mp4">
+                    </video>
+                    <button class="unmute-button" id="sca-unmute-btn" onclick="toggleMute('sca-hero-video', 'sca-unmute-btn')">
+                        <svg class="mute-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                            <path d="M3 9v6h4l5 5V4L7 9H3z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M15.54 8.46a5 5 0 0 1 0 7.07" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M17.66 6.34a9 9 0 0 1 0 11.32" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <svg class="unmute-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: block;">
+                            <path d="M3 9v6h4l5 5V4L7 9H3z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M23 9l-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M17 9l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process & Content Section -->
+    <section class="sca-process-section">
+        <div class="process-container">
+            <div class="section-header">
+                <div class="header-content">
+                    <span class="label">Our Process</span>
+                    <h2>From Challenge to Content<br><span class="subtitle">A systematic approach to storytelling</span></h2>
+                </div>
+            </div>
+
+            <!-- Step 1: Identify Problems -->
+            <div class="process-step" id="step-identify">
+                <div class="step-content">
+                    <div class="step-info">
+                        <div class="step-number">01</div>
+                        <div class="step-details">
+                            <h3>Identify Problems</h3>
+                            <p>We analyzed SCA Health's content challenges, from employee engagement gaps to inconsistent brand messaging across departments.</p>
+                            <div class="step-subscript">
+                                <p>Through stakeholder interviews and content audits, we identified key pain points: lack of authentic employee voices, disconnected values messaging, and limited recruitment content.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step-media">
+                        <div class="media-grid">
+                            <div class="landscape-video">
+                                <video id="section1-video" muted loop>
+                                    <source src="https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/2_SCA-Health/Featured https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/sca-health-problem-analysis-landscape.mp4" type="video/mp4">
+                                </video>
+                                <button class="media-play-btn" onclick="toggleVideoPlay(this)">
+                                    <div class="play-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <path d="M8 5v14l11-7z" fill="currentColor"/>
+                                        </svg>
+                                    </div>
+                                </button>
+                                <button class="unmute-button" id="section1-unmute-btn" onclick="toggleMute('section1-video', 'section1-unmute-btn')">
+                                    <svg class="mute-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                                        <path d="M3 9v6h4l5 5V4L7 9H3z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M15.54 8.46a5 5 0 0 1 0 7.07" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M17.66 6.34a9 9 0 0 1 0 11.32" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                    <svg class="unmute-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: block;">
+                                        <path d="M3 9v6h4l5 5V4L7 9H3z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M23 9l-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M17 9l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="behind-scenes-photos">
+                                <img src="https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/2_SCA-Health/Featured https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/sca-health-behind-scenes-01.jpg" alt="Behind the scenes photo 1" class="behind-scenes-photo" onclick="expandPhoto(this)">
+                                <img src="https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/2_SCA-Health/Featured https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/sca-health-behind-scenes-02.jpg" alt="Behind the scenes photo 2" class="behind-scenes-photo" onclick="expandPhoto(this)">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2: Discover Opportunities -->
+            <div class="process-step" id="step-opportunities">
+                <div class="step-content reverse">
+                    <div class="step-media">
+                        <div class="media-grid">
+                            <div class="portrait-videos">
+                                <div class="portrait-video">
+                                    <video id="portrait-video-01" muted loop>
+                                        <source src="https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/2_SCA-Health/Featured https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/sca-health-portrait-short-01.mp4" type="video/mp4">
+                                    </video>
+                                    <button class="media-play-btn" onclick="toggleVideoPlay(this)">
+                                        <div class="play-icon">
+                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                                <path d="M8 5v14l11-7z" fill="currentColor"/>
+                                            </svg>
+                                        </div>
+                                    </button>
+                                    <button class="unmute-button portrait-unmute" id="portrait-unmute-01" onclick="toggleMute('portrait-video-01', 'portrait-unmute-01')">
+                                        <svg class="mute-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                                            <path d="M3 9v6h4l5 5V4L7 9H3z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M15.54 8.46a5 5 0 0 1 0 7.07" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        <svg class="unmute-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: block;">
+                                            <path d="M3 9v6h4l5 5V4L7 9H3z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M23 9l-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M17 9l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="portrait-video">
+                                    <video id="portrait-video-02" muted loop>
+                                        <source src="https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/2_SCA-Health/Featured https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/sca-health-portrait-short-02.mp4" type="video/mp4">
+                                    </video>
+                                    <button class="media-play-btn" onclick="toggleVideoPlay(this)">
+                                        <div class="play-icon">
+                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                                <path d="M8 5v14l11-7z" fill="currentColor"/>
+                                            </svg>
+                                        </div>
+                                    </button>
+                                    <button class="unmute-button portrait-unmute" id="portrait-unmute-02" onclick="toggleMute('portrait-video-02', 'portrait-unmute-02')">
+                                        <svg class="mute-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                                            <path d="M3 9v6h4l5 5V4L7 9H3z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M15.54 8.46a5 5 0 0 1 0 7.07" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        <svg class="unmute-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: block;">
+                                            <path d="M3 9v6h4l5 5V4L7 9H3z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M23 9l-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M17 9l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="career-journey-video">
+                                <video id="career-journey-video" muted loop>
+                                    <source src="https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/2_SCA-Health/Featured https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/sca-health-career-journey-landscape.mp4" type="video/mp4">
+                                </video>
+                                <button class="media-play-btn" onclick="toggleVideoPlay(this)">
+                                    <div class="play-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <path d="M8 5v14l11-7z" fill="currentColor"/>
+                                        </svg>
+                                    </div>
+                                </button>
+                                <button class="unmute-button" id="career-journey-unmute" onclick="toggleMute('career-journey-video', 'career-journey-unmute')">
+                                    <svg class="mute-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                                        <path d="M3 9v6h4l5 5V4L7 9H3z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M15.54 8.46a5 5 0 0 1 0 7.07" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M17.66 6.34a9 9 0 0 1 0 11.32" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                    <svg class="unmute-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: block;">
+                                        <path d="M3 9v6h4l5 5V4L7 9H3z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M23 9l-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M17 9l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step-info">
+                        <div class="step-number">02</div>
+                        <div class="step-details">
+                            <h3>Discover Opportunities</h3>
+                            <p>We uncovered powerful stories within SCA Health's workforce and identified key moments to amplify their company values.</p>
+                            <div class="step-subscript">
+                                <p>Career-journey narratives emerged as the backbone of the concept. We surfaced day-in-the-life arcs across clinical, center, and corporate teams that show how mentorship, training, and cross-functional collaboration open real growth paths.<br><br>
+                                
+                                Each story ties a tangible milestone; first certification, leadership step, patient win; back to SCA Health's values (Clinical Quality, Service Excellence, Teamwork, Inclusion), so development and culture sit in the same frame.<br><br>
+                                
+                                The result: recruiting content that feels authentic to employees while clearly signaling advancement, belonging, and purpose to candidates.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3: Refine Creative Vision -->
+            <div class="process-step" id="step-refine">
+                <div class="step-content section3-layout">
+                    <div class="step-media">
+                        <div class="media-grid final-showcase">
+                            <div class="content-library-grid">
+                                <img src="https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/2_SCA-Health/Featured https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/sca-health-final-photo-01.jpg" alt="Final showcase photo 1" class="final-showcase-photo" onclick="expandPhoto(this)">
+                                <img src="https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/2_SCA-Health/Featured https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/sca-health-final-photo-02.jpg" alt="Final showcase photo 2" class="final-showcase-photo" onclick="expandPhoto(this)">
+                                <img src="https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/2_SCA-Health/Featured https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/sca-health-final-photo-03.jpg" alt="Final showcase photo 3" class="final-showcase-photo" onclick="expandPhoto(this)">
+                                <img src="https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/2_SCA-Health/Featured https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/sca-health-final-photo-04.jpg" alt="Final showcase photo 4" class="final-showcase-photo" onclick="expandPhoto(this)">
+                            </div>
+                            <div class="flagship-video">
+                                <video id="flagship-video" muted loop>
+                                    <source src="https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/2_SCA-Health/Featured https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/sca-health-flagship-values-film.mp4" type="video/mp4">
+                                </video>
+                                <button class="media-play-btn" onclick="toggleVideoPlay(this)">
+                                    <div class="play-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <path d="M8 5v14l11-7z" fill="currentColor"/>
+                                        </svg>
+                                    </div>
+                                </button>
+                                <button class="unmute-button" id="flagship-unmute" onclick="toggleMute('flagship-video', 'flagship-unmute')">
+                                    <svg class="mute-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                                        <path d="M3 9v6h4l5 5V4L7 9H3z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M15.54 8.46a5 5 0 0 1 0 7.07" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M17.66 6.34a9 9 0 0 1 0 11.32" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                    <svg class="unmute-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: block;">
+                                        <path d="M3 9v6h4l5 5V4L7 9H3z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M23 9l-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M17 9l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step-info">
+                        <div class="step-number">03</div>
+                        <div class="step-details">
+                            <h3>Refine Creative Vision</h3>
+                            <p>We crafted a unified content ecosystem that transforms individual stories into a cohesive brand narrative.</p>
+                            <div class="step-subscript">
+                                <p>We built a modular content catalog that scales: a flagship values film to introduce the culture; a series of career-journey spotlights; short social cut-downs; a stills library; and branded motion/graphic templates. The system plugs into recruitment campaigns, onboarding, town halls, and brand channels one capture feeding many placements so teams can deploy consistent, on-message content across internal communications and external marketing without reshoots.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Library Section -->
+    <section class="sca-process-section">
+        <div class="process-container">
+            <div class="section-header">
+                <div class="header-content">
+                    <span class="label">Our Product</span>
+                    <h2>A Complete Content Library<br><span class="subtitle">A media catalog at the team's fingertips</span></h2>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Showcase Section -->
+    <section class="content-showcase-section">
+        <div class="showcase-container">
+            <div class="showcase-layout">
+                <!-- Left Side: Landscape Video Preview Area -->
+                <div class="preview-area">
+                    <div class="landscape-preview" id="landscape-preview">
+                        <!-- Video will be randomly loaded by JavaScript -->
+                    </div>
+                    
+                    <!-- Landscape Video Thumbnails Below Preview -->
+                    <div class="landscape-thumbnails">
+                        <button class="scroll-arrow left" onclick="scrollLandscapeVideos('left')">‹</button>
+                        <div class="thumbnail-container" id="landscape-thumbnails">
+                            <div class="video-thumb landscape" data-video="1" onclick="selectLandscapeVideo(1)">
+                                <video muted preload="metadata">
+                                    <source src="https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/2_SCA-Health/Content-Library-Showcase/Landscape-Videos/landscape-01.mp4" type="video/mp4">
+                                </video>
+                                <div class="play-overlay">▶</div>
+                            </div>
+                            <div class="video-thumb landscape" data-video="2" onclick="selectLandscapeVideo(2)">
+                                <video muted preload="metadata">
+                                    <source src="https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/2_SCA-Health/Content-Library-Showcase/Landscape-Videos/landscape-02.mp4" type="video/mp4">
+                                </video>
+                                <div class="play-overlay">▶</div>
+                            </div>
+                            <div class="video-thumb landscape" data-video="3" onclick="selectLandscapeVideo(3)">
+                                <video muted preload="metadata">
+                                    <source src="https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/2_SCA-Health/Content-Library-Showcase/Landscape-Videos/landscape-03.mp4" type="video/mp4">
+                                </video>
+                                <div class="play-overlay">▶</div>
+                            </div>
+                        </div>
+                        <button class="scroll-arrow right" onclick="scrollLandscapeVideos('right')">›</button>
+                    </div>
+                </div>
+
+                <!-- Right Side: Content Grid -->
+                <div class="content-grid">
+                    <!-- Top Right: Vertical Videos -->
+                    <div class="vertical-video-section">
+                        <button class="scroll-arrow left" onclick="scrollVerticalVideos('left')">‹</button>
+                        <div class="vertical-thumbnails" id="vertical-thumbnails">
+                            <div class="video-thumb vertical" data-video="1" onclick="playVerticalVideo(1)">
+                                <video muted preload="metadata">
+                                    <source src="https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/2_SCA-Health/Content-Library-Showcase/Vertical-Videos/vertical-01.mp4" type="video/mp4">
+                                </video>
+                                <div class="play-overlay">▶</div>
+                            </div>
+                            <div class="video-thumb vertical" data-video="2" onclick="playVerticalVideo(2)">
+                                <video muted preload="metadata">
+                                    <source src="https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/2_SCA-Health/Content-Library-Showcase/Vertical-Videos/vertical-02.mp4" type="video/mp4">
+                                </video>
+                                <div class="play-overlay">▶</div>
+                            </div>
+                            <div class="video-thumb vertical" data-video="3" onclick="playVerticalVideo(3)">
+                                <video muted preload="metadata">
+                                    <source src="https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/2_SCA-Health/Content-Library-Showcase/Vertical-Videos/vertical-03.mp4" type="video/mp4">
+                                </video>
+                                <div class="play-overlay">▶</div>
+                            </div>
+                        </div>
+                        <button class="scroll-arrow right" onclick="scrollVerticalVideos('right')">›</button>
+                    </div>
+
+                    <!-- Bottom Right: Photos Grid (3-4-3 layout) -->
+                    <div class="photos-section">
+                        <button class="scroll-arrow left" onclick="scrollPhotos('left')">‹</button>
+                        <div class="photos-grid" id="photos-grid">
+                            <!-- Top row: 5 photos -->
+                            <div class="photo-row top-row">
+                                <img src="https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/2_SCA-Health/Content-Library-Showcase/Photos/photo-001.JPG" alt="Photo 1" class="photo-thumb" data-photo="1" onclick="expandPhoto(this)" loading="lazy">
+                                <img src="https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/2_SCA-Health/Content-Library-Showcase/Photos/photo-002.JPG" alt="Photo 2" class="photo-thumb" data-photo="2" onclick="expandPhoto(this)" loading="lazy">
+                                <img src="https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/2_SCA-Health/Content-Library-Showcase/Photos/photo-003.JPG" alt="Photo 3" class="photo-thumb" data-photo="3" onclick="expandPhoto(this)" loading="lazy">
+                                <img src="https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/2_SCA-Health/Content-Library-Showcase/Photos/photo-004.JPG" alt="Photo 4" class="photo-thumb" data-photo="4" onclick="expandPhoto(this)" loading="lazy">
+                                <img src="https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/2_SCA-Health/Content-Library-Showcase/Photos/photo-005.JPG" alt="Photo 5" class="photo-thumb" data-photo="5" onclick="expandPhoto(this)" loading="lazy">
+                            </div>
+                            <!-- Middle row: 6 photos -->
+                            <div class="photo-row middle-row">
+                                <img src="https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/2_SCA-Health/Content-Library-Showcase/Photos/photo-006.JPG" alt="Photo 6" class="photo-thumb" data-photo="6" onclick="expandPhoto(this)" loading="lazy">
+                                <img src="https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/2_SCA-Health/Content-Library-Showcase/Photos/photo-007.JPG" alt="Photo 7" class="photo-thumb" data-photo="7" onclick="expandPhoto(this)" loading="lazy">
+                                <img src="https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/2_SCA-Health/Content-Library-Showcase/Photos/photo-008.JPG" alt="Photo 8" class="photo-thumb" data-photo="8" onclick="expandPhoto(this)" loading="lazy">
+                                <img src="https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/2_SCA-Health/Content-Library-Showcase/Photos/photo-009.JPG" alt="Photo 9" class="photo-thumb" data-photo="9" onclick="expandPhoto(this)" loading="lazy">
+                                <img src="https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/2_SCA-Health/Content-Library-Showcase/Photos/photo-010.JPG" alt="Photo 10" class="photo-thumb" data-photo="10" onclick="expandPhoto(this)" loading="lazy">
+                                <img src="https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/2_SCA-Health/Content-Library-Showcase/Photos/photo-011.JPG" alt="Photo 11" class="photo-thumb" data-photo="11" onclick="expandPhoto(this)" loading="lazy">
+                            </div>
+                            <!-- Bottom row: 5 photos -->
+                            <div class="photo-row bottom-row">
+                                <img src="https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/2_SCA-Health/Content-Library-Showcase/Photos/photo-012.JPG" alt="Photo 12" class="photo-thumb" data-photo="12" onclick="expandPhoto(this)" loading="lazy">
+                                <img src="https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/2_SCA-Health/Content-Library-Showcase/Photos/photo-013.JPG" alt="Photo 13" class="photo-thumb" data-photo="13" onclick="expandPhoto(this)" loading="lazy">
+                                <img src="https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/2_SCA-Health/Content-Library-Showcase/Photos/photo-014.JPG" alt="Photo 14" class="photo-thumb" data-photo="14" onclick="expandPhoto(this)" loading="lazy">
+                                <img src="https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/2_SCA-Health/Content-Library-Showcase/Photos/photo-015.JPG" alt="Photo 15" class="photo-thumb" data-photo="15" onclick="expandPhoto(this)" loading="lazy">
+                                <img src="https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/2_SCA-Health/Content-Library-Showcase/Photos/photo-016.JPG" alt="Photo 16" class="photo-thumb" data-photo="16" onclick="expandPhoto(this)" loading="lazy">
+                            </div>
+                        </div>
+                        <button class="scroll-arrow right" onclick="scrollPhotos('right')">›</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
