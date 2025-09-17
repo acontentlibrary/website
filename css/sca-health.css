@@ -1175,9 +1175,9 @@
 
 /* FINAL MOBILE SCROLL ARROW OVERRIDE - Must be at the very end to override desktop styles */
 @media (max-width: 768px) {
+    /* Only target landscape and photo arrows, not vertical videos */
     .landscape-thumbnails .scroll-arrow,
-    .photos-section .scroll-arrow,
-    .vertical-video-section .scroll-arrow {
+    .photos-section .scroll-arrow {
         width: 44px !important;
         height: 44px !important;
         font-size: 20px !important;
@@ -1199,10 +1199,22 @@
     }
     
     .landscape-thumbnails .scroll-arrow:active,
-    .photos-section .scroll-arrow:active,
-    .vertical-video-section .scroll-arrow:active {
+    .photos-section .scroll-arrow:active {
         background: rgba(0, 0, 0, 0.4) !important;
         transform: scale(0.9) !important;
+    }
+    
+    /* Debug: Make sure the right arrow container has space */
+    .landscape-thumbnails {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        width: 100% !important;
+    }
+    
+    .thumbnail-container {
+        flex: 1 !important;
+        margin: 0 8px !important;
     }
 }
 

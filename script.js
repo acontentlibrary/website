@@ -340,16 +340,34 @@ function scrollVerticalVideos(direction) {
 
 // Scroll photos
 function scrollPhotos(direction) {
+    console.log('scrollPhotos called with direction:', direction);
+    console.log('window width:', window.innerWidth);
+    
     // Check if mobile - use direct DOM scrolling
     if (window.innerWidth < 768) {
         const photosGrid = document.querySelector('.photos-grid');
+        console.log('photosGrid element:', photosGrid);
+        
         if (photosGrid) {
             const scrollAmount = 300; // pixels to scroll
+            console.log('Current scrollLeft:', photosGrid.scrollLeft);
+            console.log('ScrollWidth:', photosGrid.scrollWidth);
+            console.log('ClientWidth:', photosGrid.clientWidth);
+            
             if (direction === 'left') {
                 photosGrid.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+                console.log('Scrolling left by', -scrollAmount);
             } else {
                 photosGrid.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                console.log('Scrolling right by', scrollAmount);
             }
+            
+            // Check scroll position after
+            setTimeout(() => {
+                console.log('New scrollLeft after scroll:', photosGrid.scrollLeft);
+            }, 100);
+        } else {
+            console.error('photosGrid element not found!');
         }
         return;
     }
