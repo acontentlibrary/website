@@ -768,13 +768,14 @@
         order: 2;
     }
     
-    /* Mobile landscape video carousel - clean grid layout */
+    /* Mobile landscape video carousel - with both arrows */
     .landscape-thumbnails {
         margin-bottom: 30px;
         display: flex;
         align-items: center;
         gap: 12px;
         padding: 0 16px;
+        justify-content: center;
     }
     
     .thumbnail-container {
@@ -841,8 +842,7 @@
     }
     
     .photos-grid {
-        display: flex;
-        gap: 8px;
+        display: block;
         overflow-x: auto;
         scroll-behavior: smooth;
         flex: 1;
@@ -861,6 +861,7 @@
         gap: 8px;
         margin-bottom: 0;
         min-width: max-content;
+        white-space: nowrap;
     }
     
     .photo-row.middle-row,

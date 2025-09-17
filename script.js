@@ -340,6 +340,21 @@ function scrollVerticalVideos(direction) {
 
 // Scroll photos
 function scrollPhotos(direction) {
+    // Check if mobile - use direct DOM scrolling
+    if (window.innerWidth < 768) {
+        const photosGrid = document.querySelector('.photos-grid');
+        if (photosGrid) {
+            const scrollAmount = 300; // pixels to scroll
+            if (direction === 'left') {
+                photosGrid.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            } else {
+                photosGrid.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            }
+        }
+        return;
+    }
+    
+    // Desktop - original behavior
     if (direction === 'left') {
         currentPhotoIndex -= 16;
         if (currentPhotoIndex < 0) {
