@@ -36,9 +36,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     const videos = [
-        { src: 'Media/1_HomePage/Hunter Douglas_1.mov', username: 'Hunter Douglas' },
-        { src: 'Media/1_HomePage/HBIC.mp4', username: 'Head Bartender in Charge' },
-        { src: 'Media/1_HomePage/Hunter Douglas_2.mov', username: 'Hunter Douglas' }
+        { src: 'https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/1_HomePage/Hunter%20Douglas_1.mov', username: 'Hunter Douglas' },
+        { src: 'https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/1_HomePage/HBIC.mp4', username: 'Head Bartender in Charge' },
+        { src: 'https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/1_HomePage/Hunter%20Douglas_2.mov', username: 'Hunter Douglas' }
     ];
     
     let currentVideoIndex = 0;
