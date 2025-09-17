@@ -749,17 +749,9 @@
         overflow-x: hidden;
     }
     
+    /* Hide preview window on mobile */
     .preview-area {
-        max-width: 100%;
-        overflow-x: hidden;
-        order: 1;
-    }
-    
-    .landscape-preview {
-        width: 100%;
-        max-width: 100%;
-        aspect-ratio: 16/9;
-        margin-bottom: 20px;
+        display: none;
     }
     
     .content-grid {
@@ -770,22 +762,24 @@
         order: 2;
     }
     
-    /* Mobile landscape video carousel - scrollable */
+    /* Mobile landscape video carousel - clean grid layout */
     .landscape-thumbnails {
         margin-bottom: 30px;
         display: flex;
         align-items: center;
-        gap: 8px;
+        gap: 12px;
+        padding: 0 16px;
     }
     
     .thumbnail-container {
         display: flex;
-        gap: 8px;
+        gap: 12px;
         overflow-x: auto;
         scroll-behavior: smooth;
         padding: 10px 0;
         flex: 1;
         -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
     }
     
     .thumbnail-container::-webkit-scrollbar {
@@ -816,11 +810,19 @@
         flex: none;
     }
     
-    /* Landscape video thumbnails */
+    /* Landscape video thumbnails - larger for mobile */
     .video-thumb.landscape {
-        width: 90px;
-        height: 51px;
+        width: 140px;
+        height: 79px;
         flex: none;
+        border-radius: 8px;
+        overflow: hidden;
+        cursor: pointer;
+        transition: transform 0.2s ease;
+    }
+    
+    .video-thumb.landscape:active {
+        transform: scale(0.95);
     }
     
     /* Mobile photo carousel - scrollable with arrows */
@@ -860,16 +862,23 @@
     
     /* Mobile-friendly scroll arrows */
     .scroll-arrow {
-        width: 36px;
-        height: 36px;
-        font-size: 16px;
-        background: rgba(0, 0, 0, 0.1);
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+        background: rgba(0, 0, 0, 0.15);
         border-radius: 50%;
         flex: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #333;
+        font-weight: bold;
+        border: 1px solid rgba(0, 0, 0, 0.1);
     }
     
-    .scroll-arrow:hover {
-        background: rgba(0, 0, 0, 0.2);
+    .scroll-arrow:active {
+        background: rgba(0, 0, 0, 0.25);
+        transform: scale(0.95);
     }
     
     /* Ensure no horizontal scrolling */

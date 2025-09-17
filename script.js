@@ -478,10 +478,18 @@ function loadRandomPreviewVideo() {
     }
 }
 
-// Landscape video selection for preview
+// Landscape video selection - mobile-friendly full-screen
 function selectLandscapeVideo(videoNumber) {
     const actualIndex = (currentLandscapeIndex + (videoNumber - 1)) % landscapeVideos.length;
     const previewArea = document.getElementById('landscape-preview');
+    
+    // Check if mobile (screen width < 768px) - open in full screen modal
+    if (window.innerWidth < 768) {
+        openVideoModal(landscapeVideos[actualIndex]);
+        return;
+    }
+    
+    // Desktop behavior - use preview area
     if (previewArea && landscapeVideos[actualIndex]) {
         // Pause all other videos first
         const allVideos = document.querySelectorAll('video');
@@ -573,6 +581,104 @@ function playVerticalVideo(videoNumber) {
     }
 }
 
+
+// Mobile full-screen video modal
+function openVideoModal(videoFileName) {
+    // Create modal overlay
+    const modal = document.createElement('div');
+    modal.className = 'video-modal';
+    modal.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.95);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10000;
+        padding: 20px;
+        box-sizing: border-box;
+    `;
+    
+    // Create video container
+    const videoContainer = document.createElement('div');
+    videoContainer.style.cssText = `
+        position: relative;
+        width: 100%;
+        max-width: 100%;
+        aspect-ratio: 16/9;
+        background: #000;
+        border-radius: 12px;
+        overflow: hidden;
+    `;
+    
+    // Create video element
+    const video = document.createElement('video');
+    video.style.cssText = `
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    `;
+    video.controls = true;
+    video.autoplay = true;
+    video.muted = false;
+    
+    const source = document.createElement('source');
+    source.src = `https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/2_SCA-Health/Content-Library-Showcase/Landscape-Videos/${videoFileName}`;
+    source.type = 'video/mp4';
+    
+    video.appendChild(source);
+    
+    // Create close button
+    const closeButton = document.createElement('button');
+    closeButton.innerHTML = '×';
+    closeButton.style.cssText = `
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 40px;
+        height: 40px;
+        border: none;
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        font-size: 24px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10001;
+    `;
+    
+    // Add elements to container
+    videoContainer.appendChild(video);
+    videoContainer.appendChild(closeButton);
+    modal.appendChild(videoContainer);
+    document.body.appendChild(modal);
+    
+    // Close modal function
+    const closeModal = () => {
+        video.pause();
+        document.body.removeChild(modal);
+    };
+    
+    // Event listeners
+    closeButton.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
+    
+    // Close on escape key
+    const handleEscape = (e) => {
+        if (e.key === 'Escape') {
+            closeModal();
+            document.removeEventListener('keydown', handleEscape);
+        }
+    };
+    document.addEventListener('keydown', handleEscape);
+}
 
 // Enhanced toggle video play with auto-mute/unmute
 function toggleVideoPlay(element) {
