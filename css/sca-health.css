@@ -677,9 +677,28 @@
         align-items: center;
     }
     
+    .step-content.section3-layout {
+        text-align: center !important;
+        justify-content: center !important;
+        margin: 0 auto !important;
+    }
+    
     .step-info {
         text-align: center;
         max-width: 100%;
+    }
+    
+    /* Fix video thumbnails not loading */
+    .landscape-video video,
+    .portrait-video video,
+    .career-journey-video video,
+    .flagship-video video {
+        background: #000;
+        min-height: 200px;
+    }
+    
+    .portrait-video {
+        min-height: 280px;
     }
     
     .section-header h2 {
@@ -717,7 +736,7 @@
         flex-direction: column;
     }
     
-    /* Fix content library mobile layout */
+    /* Redesign content library for mobile - stack everything vertically */
     .content-showcase-section {
         padding: 40px 16px;
         overflow-x: hidden;
@@ -733,55 +752,76 @@
     .preview-area {
         max-width: 100%;
         overflow-x: hidden;
+        order: 1;
     }
     
     .landscape-preview {
         width: 100%;
         max-width: 100%;
         aspect-ratio: 16/9;
-        margin-bottom: 16px;
+        margin-bottom: 20px;
     }
     
     .content-grid {
         flex: none;
         max-width: 100%;
-        gap: 20px;
+        gap: 30px;
         overflow-x: hidden;
+        order: 2;
     }
     
+    /* Stack landscape thumbnails in a simple row */
+    .landscape-thumbnails {
+        margin-bottom: 30px;
+    }
+    
+    .thumbnail-container {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+    
+    /* Mobile-friendly vertical videos - show in a row */
     .vertical-video-section {
-        flex-direction: column;
-        gap: 16px;
+        margin-bottom: 30px;
+    }
+    
+    .vertical-video-section h3 {
+        text-align: center;
+        margin-bottom: 15px;
+        font-size: 18px;
     }
     
     .vertical-thumbnails {
+        display: flex;
         justify-content: center;
+        gap: 12px;
         flex-wrap: wrap;
     }
     
     .video-thumb.vertical {
-        width: 120px;
-        height: 213px;
-        flex: none;
-    }
-    
-    .landscape-thumbnails {
-        justify-content: center;
-        max-width: 100%;
-        overflow-x: hidden;
-    }
-    
-    .thumbnail-container {
-        max-width: 100%;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 8px;
-    }
-    
-    .video-thumb.landscape {
         width: 100px;
-        height: 56px;
+        height: 178px;
         flex: none;
+    }
+    
+    /* Landscape video thumbnails */
+    .video-thumb.landscape {
+        width: 90px;
+        height: 51px;
+        flex: none;
+    }
+    
+    /* Redesign photo grid for mobile - show fewer photos in organized rows */
+    .photos-section {
+        margin-top: 30px;
+    }
+    
+    .photos-section h3 {
+        text-align: center;
+        margin-bottom: 15px;
+        font-size: 18px;
     }
     
     .photos-grid {
@@ -791,22 +831,46 @@
     
     .photo-row {
         justify-content: center;
-        flex-wrap: wrap;
-        gap: 4px;
-        max-width: 100%;
+        gap: 6px;
+        margin-bottom: 6px;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding: 0 10px;
+    }
+    
+    .photo-row.top-row {
+        justify-content: center;
+    }
+    
+    .photo-row.middle-row {
+        justify-content: center;
+    }
+    
+    .photo-row.bottom-row {
+        justify-content: center;
     }
     
     .photo-thumb {
-        width: 45px;
-        height: 34px;
+        width: 50px;
+        height: 38px;
         flex: none;
+        border-radius: 4px;
     }
     
-    /* Reduce scroll arrows size */
+    /* Hide scroll arrows on mobile - not needed with simplified layout */
     .scroll-arrow {
-        width: 32px;
-        height: 32px;
-        font-size: 18px;
+        display: none;
+    }
+    
+    /* Ensure no horizontal scrolling */
+    .showcase-container,
+    .showcase-layout,
+    .preview-area,
+    .content-grid,
+    .vertical-video-section,
+    .photos-section {
+        max-width: 100%;
+        overflow-x: hidden;
     }
 }
 
