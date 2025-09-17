@@ -666,6 +666,82 @@
     
     .portrait-videos {
         flex-direction: column;
+        gap: 24px;
+    }
+    
+    /* Fix oversized photos in identify problems section */
+    .behind-scenes-photos {
+        flex-direction: column;
+        gap: 16px;
+    }
+    
+    .behind-scenes-photo {
+        height: 160px;
+        width: 100%;
+    }
+    
+    /* Make text appear above videos in sections 2 & 3 */
+    .step-content.reverse {
+        flex-direction: column;
+    }
+    
+    /* Fix content library mobile layout */
+    .showcase-layout {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .content-grid {
+        flex: none;
+        max-width: 100%;
+        gap: 30px;
+    }
+    
+    .vertical-video-section {
+        flex-direction: column;
+        gap: 16px;
+    }
+    
+    .vertical-thumbnails {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .video-thumb.vertical {
+        width: 120px;
+        height: 213px;
+        flex: none;
+    }
+    
+    .landscape-thumbnails {
+        justify-content: center;
+    }
+    
+    .video-thumb.landscape {
+        width: 140px;
+        height: 79px;
+    }
+    
+    .photos-grid {
+        max-width: 100%;
+    }
+    
+    .photo-row {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .photo-thumb {
+        width: 50px;
+        height: 38px;
+        flex: none;
+    }
+    
+    /* Reduce scroll arrows size */
+    .scroll-arrow {
+        width: 32px;
+        height: 32px;
+        font-size: 18px;
     }
 }
 
@@ -926,24 +1002,5 @@
     }
 }
 
-@media (max-width: 768px) {
-    .content-showcase-section {
-        padding: 60px 32px;
-    }
-    
-    .video-thumb.landscape {
-        width: 160px;
-        height: 90px;
-    }
-    
-    .video-thumb.vertical {
-        width: 90px;
-        height: 320px;
-    }
-    
-    .photo-thumb {
-        width: 60px;
-        height: 45px;
-    }
-}
+/* Mobile content showcase styles moved to main mobile section above */
 
