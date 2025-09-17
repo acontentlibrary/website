@@ -367,7 +367,7 @@ function updateLandscapeDisplay() {
                 const video = thumbs[i].querySelector('video');
                 const source = video?.querySelector('source');
                 if (source && video) {
-                    const newSrc = `Media/2_SCA-Health/Content-Library-Showcase/Landscape-Videos/${landscapeVideos[videoIndex]}`;
+                    const newSrc = `https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/2_SCA-Health/Content-Library-Showcase/Landscape-Videos/${landscapeVideos[videoIndex]}`;
                     if (source.src !== newSrc) {
                         source.src = newSrc;
                         video.load();
@@ -453,7 +453,7 @@ function loadRandomPreviewVideo() {
     if (previewArea && landscapeVideos[randomIndex]) {
         previewArea.innerHTML = `
             <video id="preview-video" muted loop style="width: 100%; height: 100%; object-fit: cover;">
-                <source src="Media/2_SCA-Health/Content-Library-Showcase/Landscape-Videos/${landscapeVideos[randomIndex]}" type="video/mp4">
+                <source src="https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/2_SCA-Health/Content-Library-Showcase/Landscape-Videos/${landscapeVideos[randomIndex]}" type="video/mp4">
             </video>
             <button class="media-play-btn" onclick="togglePreviewVideo()">
                 <div class="play-icon">
@@ -494,7 +494,7 @@ function selectLandscapeVideo(videoNumber) {
         
         previewArea.innerHTML = `
             <video id="preview-video" muted loop style="width: 100%; height: 100%; object-fit: cover;">
-                <source src="Media/2_SCA-Health/Content-Library-Showcase/Landscape-Videos/${landscapeVideos[actualIndex]}" type="video/mp4">
+                <source src="https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/2_SCA-Health/Content-Library-Showcase/Landscape-Videos/${landscapeVideos[actualIndex]}" type="video/mp4">
             </video>
             <button class="media-play-btn" onclick="togglePreviewVideo()">
                 <div class="play-icon">
