@@ -389,7 +389,7 @@ function updateVerticalDisplay() {
             if (thumbs[i] && verticalVideos[videoIndex]) {
                 const video = thumbs[i].querySelector('video source');
                 if (video) {
-                    video.src = `Media/2_SCA-Health/Content-Library-Showcase/Vertical-Videos/${verticalVideos[videoIndex]}`;
+                    video.src = `https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/2_SCA-Health/Content-Library-Showcase/Vertical-Videos/${verticalVideos[videoIndex]}`;
                     thumbs[i].querySelector('video').load();
                 }
                 thumbs[i].setAttribute('data-video', videoIndex + 1);
