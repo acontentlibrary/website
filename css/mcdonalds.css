@@ -1,52 +1,647 @@
 /* McDonald's Case Study Page Styles */
 .mcdonalds-hero {
-    padding: 200px 64px 80px;
-    max-width: 1400px;
+    padding: 120px 64px 80px;
+    max-width: 1800px;
     margin: 0 auto;
-    text-align: center;
-    min-height: 60vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
 }
 
-.mcdonalds-hero h1 {
+.mcdonalds-hero .hero-content {
+    display: flex;
+    gap: 64px;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 60vh;
+}
+
+.mcdonalds-hero .hero-text {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    align-items: flex-start;
+    justify-content: center;
+    min-width: 0;
+    flex-grow: 1;
+    max-width: 700px;
+}
+
+.mcdonalds-hero .hero-text h1 {
     font-family: 'Inter', sans-serif;
     font-weight: 500;
     font-size: 100px;
-    line-height: 0.9;
+    line-height: 100px;
     letter-spacing: -6px;
-    color: #1a1a1a;
-    margin-bottom: 2rem;
+    color: #000;
+    margin: 0;
+    font-variation-settings: 'wght' 500;
 }
 
-.mcdonalds-hero p {
+.mcdonalds-hero .hero-text p {
     font-family: 'Inter', sans-serif;
-    font-weight: 400;
+    font-weight: 500;
     font-size: 24px;
-    line-height: 1.5;
-    color: #666;
+    line-height: 36px;
+    letter-spacing: -1.2px;
+    color: rgba(0, 0, 0, 0.48);
+    margin: 0;
+    width: 700px;
+    max-width: 700px;
+}
+
+.mcdonalds-hero .hero-photo {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1000px;
+    max-width: 100%;
+    position: relative;
+    flex-shrink: 1;
+}
+
+.mcdonalds-hero .photo-container {
+    width: 100%;
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0px 2px 16px 0px rgba(0, 0, 0, 0.1);
+}
+
+.mcdonalds-hero .photo-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.mcdonalds-hero .photo-container img:hover {
+    transform: scale(1.02);
+}
+
+/* Process & Content Section */
+.mcdonalds-process-section {
+    padding: 0;
+    background: #f5f1eb;
+}
+
+.process-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.mcdonalds-process-section .section-header {
+    text-align: center;
+    padding: 60px 0 60px !important;
+    background: white;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+}
+
+.section-header .header-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 64px;
+}
+
+.section-header .label {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: rgba(0, 0, 0, 0.6);
+    margin-bottom: 16px;
+    display: block;
+}
+
+.section-header h2 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 48px;
+    line-height: 56px;
+    letter-spacing: -2px;
+    color: #000;
+    margin: 0;
+}
+
+.section-header .subtitle {
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 24px;
+}
+
+.process-step {
+    padding: 80px 64px;
+}
+
+.process-step:nth-child(2) {
+    background: #f5f1eb;
+}
+
+.process-step:nth-child(3) {
+    background: white;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+}
+
+.process-step:nth-child(3) .step-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 64px;
+}
+
+.process-step:nth-child(4) {
+    background: #f5f1eb;
+}
+
+.process-step:nth-child(4) .step-content {
+    max-width: 1400px;
+    margin: 0 0 0 200px;
+    padding: 0 64px;
+}
+
+.step-content.section3-layout {
+    justify-content: flex-start;
+    margin: 0 0 0 64px !important;
+    max-width: none !important;
+    gap: 80px;
+}
+
+.step-content.section3-layout .step-media {
+    flex: 0 0 auto;
     max-width: 600px;
 }
 
-.construction-badge {
+.step-content.section3-layout .step-info {
+    flex: 1;
+    max-width: 500px;
+}
+
+.step-content {
+    display: flex;
+    gap: 80px;
+    align-items: center;
+}
+
+.step-content.reverse {
+    flex-direction: row-reverse;
+}
+
+.step-info {
+    flex: 1;
+    max-width: 500px;
+}
+
+.step-number {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: 120px;
+    line-height: 1;
+    letter-spacing: -6px;
+    color: rgba(0, 0, 0, 0.1);
+    margin-bottom: 24px;
+}
+
+.step-details h3 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 40px;
+    letter-spacing: -1px;
+    color: #000;
+    margin: 0 0 16px 0;
+}
+
+.step-details p {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 28px;
+    color: rgba(0, 0, 0, 0.7);
+    margin: 0 0 24px 0;
+}
+
+.step-subscript {
+    padding: 24px;
+    background: rgba(0, 0, 0, 0.03);
+    border-radius: 12px;
+    border-left: 4px solid #000;
+}
+
+.step-subscript p {
+    font-size: 16px;
+    line-height: 24px;
+    color: rgba(0, 0, 0, 0.6);
+    margin: 0;
+}
+
+.step-media {
+    flex: 1;
+    max-width: 600px;
+}
+
+.media-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Route Maps Styling */
+.route-maps {
+    display: flex;
+    gap: 16px;
+}
+
+.route-map-photo {
+    flex: 1;
+    width: 100%;
+    height: 300px;
+    border-radius: 12px;
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.route-map-photo:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Execution Photos - 3x2 Grid */
+.photo-grid-3x2 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 12px;
+    aspect-ratio: 3/2;
+}
+
+.execution-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.execution-photo:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Library Preview Grid - custom layout: 2 portraits on top, 1 landscape spanning bottom */
+.library-preview-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 12px;
+}
+
+.library-preview-photo {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.library-preview-photo.portrait {
+    aspect-ratio: 3/4;
+    grid-row: 1;
+}
+
+.library-preview-photo.landscape-bottom {
+    aspect-ratio: 16/9;
+    grid-column: 1 / -1;
+    grid-row: 2;
+}
+
+.library-preview-photo:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Photo Showcase Section */
+.photo-showcase-section {
+    padding: 80px 64px;
     background: #f5f1eb;
-    color: #1a1a1a;
-    padding: 1rem 2rem;
-    border-radius: 50px;
-    font-size: 1rem;
-    font-weight: 500;
-    margin-bottom: 2rem;
-    border: 2px solid #ddd;
+}
+
+.showcase-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.showcase-layout {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* Masonry-style photo grid like the reference image */
+.mcdonalds-photo-grid {
+    columns: 4;
+    column-gap: 16px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.mcdonalds-photo-item {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 16px;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: #ddd;
+    break-inside: avoid;
+}
+
+.mcdonalds-photo-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+}
+
+.mcdonalds-photo-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+/* Vary photo sizes for visual interest */
+.mcdonalds-photo-item.size-small {
+    transform: scale(0.8);
+}
+
+.mcdonalds-photo-item.size-large {
+    transform: scale(1.1);
+}
+
+.mcdonalds-photo-item.size-medium {
+    transform: scale(0.95);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .mcdonalds-hero {
+        padding: 100px 48px 60px;
+    }
+    
+    .mcdonalds-hero .hero-content {
+        gap: 48px;
+    }
+    
+    .mcdonalds-hero .hero-photo {
+        width: 800px;
+        max-width: 100%;
+    }
+    
+    .mcdonalds-hero .hero-text h1 {
+        font-size: 80px;
+        line-height: 80px;
+        letter-spacing: -4px;
+    }
+    
+    .mcdonalds-hero .hero-text p {
+        font-size: 22px;
+        line-height: 32px;
+        width: 600px;
+        max-width: 100%;
+    }
 }
 
 @media (max-width: 768px) {
-    .mcdonalds-hero h1 {
-        font-size: 60px;
+    /* Fix header on mobile for McDonald's page */
+    .nav {
+        padding: 0 1rem !important;
+        gap: 1rem !important;
     }
     
-    .mcdonalds-hero p {
+    .nav-brand {
+        font-size: 20px !important;
+    }
+    
+    .nav-menu {
+        display: none !important;
+    }
+    
+    .btn-primary {
+        padding: 6px 12px !important;
+        font-size: 12px !important;
+    }
+    
+    .mcdonalds-hero {
+        padding: 80px 32px 60px;
+    }
+    
+    .mcdonalds-hero .hero-content {
+        flex-direction: column;
+        gap: 40px;
+        text-align: center;
+    }
+    
+    .mcdonalds-hero .hero-text {
+        align-items: center;
+        max-width: 100%;
+    }
+    
+    .mcdonalds-hero .hero-text h1 {
+        font-size: 60px;
+        line-height: 60px;
+        letter-spacing: -3px;
+    }
+    
+    .mcdonalds-hero .hero-text p {
         font-size: 18px;
+        line-height: 28px;
+        text-align: center;
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .mcdonalds-hero .hero-photo {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .section-header {
+        padding: 20px 0 40px;
+    }
+    
+    .section-header .header-content {
+        padding: 0 32px;
+    }
+    
+    .process-step {
+        padding: 60px 32px;
+    }
+    
+    .process-step:nth-child(3) .step-content {
+        padding: 0 32px;
+        margin: 0 auto;
+        text-align: center;
+    }
+    
+    .process-step:nth-child(4) .step-content {
+        padding: 0 32px;
+        margin: 0 auto;
+        text-align: center;
+    }
+    
+    /* Center all process steps on mobile */
+    .process-step .step-content {
+        text-align: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 40px;
+    }
+    
+    .step-content.reverse {
+        flex-direction: column;
+    }
+    
+    .step-content.section3-layout {
+        text-align: center !important;
+        justify-content: center !important;
+        margin: 0 auto !important;
+        flex-direction: column !important;
+    }
+    
+    .step-info {
+        text-align: center;
+        max-width: 100%;
+    }
+    
+    .step-media {
+        max-width: 100%;
+    }
+    
+    .section-header h2 {
+        font-size: 36px;
+        line-height: 44px;
+    }
+    
+    .step-number {
+        font-size: 80px;
+    }
+    
+    .step-details h3 {
+        font-size: 24px;
+        line-height: 32px;
+    }
+    
+    .route-maps {
+        flex-direction: column;
+        gap: 16px;
+    }
+    
+    .route-map-photo {
+        height: 200px;
+        width: 100%;
+    }
+    
+    .photo-grid-3x2 {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        gap: 8px;
+    }
+    
+    .library-preview-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+    }
+    
+    .library-preview-photo.portrait {
+        aspect-ratio: 3/4;
+    }
+    
+    .library-preview-photo.landscape-bottom {
+        aspect-ratio: 16/9;
+        grid-column: 1 / -1;
+    }
+    
+    .photo-showcase-section {
+        padding: 40px 16px;
+    }
+    
+    /* Mobile: Switch to simple grid instead of masonry */
+    .mcdonalds-photo-grid {
+        columns: auto;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+    
+    .mcdonalds-photo-item {
+        display: block;
+        margin-bottom: 0;
+        aspect-ratio: 16/9;
+    }
+    
+    .mcdonalds-photo-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    /* Remove size variations on mobile for consistency */
+    .mcdonalds-photo-item.size-small,
+    .mcdonalds-photo-item.size-medium,
+    .mcdonalds-photo-item.size-large {
+        transform: none;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Single column grid for very small screens */
+    .mcdonalds-photo-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    
+    .mcdonalds-photo-item {
+        aspect-ratio: 16/9;
+    }
+    
+    .photo-grid-3x2 {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(6, 1fr);
+        gap: 12px;
+    }
+    
+    .route-maps {
+        gap: 12px;
+    }
+    
+    .route-map-photo {
+        height: 160px;
+    }
+    
+    .library-preview-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    .library-preview-photo.portrait {
+        aspect-ratio: 3/4;
+        grid-column: 1;
+    }
+    
+    .library-preview-photo.landscape-bottom {
+        aspect-ratio: 16/9;
+        grid-column: 1;
     }
 }

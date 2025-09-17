@@ -26,7 +26,7 @@ window.addEventListener('scroll', function() {
 document.addEventListener('DOMContentLoaded', function() {
     console.log('A Content Library website loaded successfully!');
     
-    // Load random preview video for content showcase
+    // Load random preview video for content showcase (SCA Health)
     if (document.getElementById('landscape-preview')) {
         // Check if mobile and create proper landscape section
         if (window.innerWidth < 768) {
@@ -40,6 +40,11 @@ document.addEventListener('DOMContentLoaded', function() {
         updateLandscapeDisplay();
         updateVerticalDisplay();
         updatePhotoDisplay();
+    }
+    
+    // Load McDonald's photo grid
+    if (document.querySelector('.mcdonalds-photo-grid')) {
+        loadMcDonaldsPhotos();
     }
     
     const videos = [
@@ -876,6 +881,95 @@ function openVideoModal(videoFileName) {
         }
     };
     document.addEventListener('keydown', handleEscape);
+}
+
+// Randomize McDonald's photos in sections 1-3
+function randomizeMcDonaldsPhotos() {
+    console.log('Randomizing McDonald\'s section photos...');
+    
+    // Available photo range (adjust based on what actually exists)
+    const availablePhotos = [];
+    for (let i = 1; i <= 78; i++) {
+        availablePhotos.push(i.toString().padStart(2, '0'));
+    }
+    
+    // Shuffle the array
+    const shuffledPhotos = [...availablePhotos].sort(() => Math.random() - 0.5);
+    
+    // Find all random photo placeholders
+    const randomPhotos = document.querySelectorAll('.random-mcdonalds-photo');
+    
+    randomPhotos.forEach((img, index) => {
+        if (shuffledPhotos[index]) {
+            const photoNumber = shuffledPhotos[index];
+            img.src = `https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/3_McDonalds/Featured%20Media/McDonalds-${photoNumber}.jpg`;
+            img.alt = `McDonald's Photo ${photoNumber}`;
+            
+            // Add error handling
+            img.onerror = () => {
+                console.error(`Failed to load random photo: McDonalds-${photoNumber}.jpg`);
+                // Try next photo in the shuffled array
+                const nextIndex = index + randomPhotos.length;
+                if (shuffledPhotos[nextIndex]) {
+                    const nextPhoto = shuffledPhotos[nextIndex];
+                    img.src = `https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/3_McDonalds/Featured%20Media/McDonalds-${nextPhoto}.jpg`;
+                }
+            };
+            
+            img.onload = () => {
+                console.log(`Successfully loaded random photo: McDonalds-${photoNumber}.jpg`);
+            };
+        }
+    });
+}
+
+// Load McDonald's photo grid - masonry style with mixed order and sizes
+function loadMcDonaldsPhotos() {
+    console.log('Loading McDonald\'s masonry photo grid...');
+    
+    const photoGrid = document.querySelector('.mcdonalds-photo-grid');
+    if (photoGrid) {
+        // Create array of all 78 photos
+        const allPhotos = [];
+        for (let i = 1; i <= 78; i++) {
+            allPhotos.push(i.toString().padStart(3, '0'));
+        }
+        
+        // Shuffle the array for random order
+        const shuffledPhotos = allPhotos.sort(() => Math.random() - 0.5);
+        
+        // Size variations for visual interest
+        const sizeClasses = ['size-small', 'size-medium', 'size-large', ''];
+        
+        shuffledPhotos.forEach((photoNumber, index) => {
+            const photoItem = document.createElement('div');
+            
+            // Randomly assign size variation
+            const randomSize = sizeClasses[Math.floor(Math.random() * sizeClasses.length)];
+            photoItem.className = `mcdonalds-photo-item ${randomSize}`;
+            
+            const img = document.createElement('img');
+            img.src = `https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/3_McDonalds/Featured%20Media/McDonalds-${photoNumber}.jpg`;
+            img.alt = `McDonald's Photo ${photoNumber}`;
+            img.loading = 'lazy';
+            img.onclick = () => expandPhoto(img);
+            
+            // Add error handling
+            img.onerror = () => {
+                console.error(`Failed to load: McDonalds-${photoNumber}.jpg`);
+                photoItem.style.display = 'none';
+            };
+            
+            img.onload = () => {
+                console.log(`Successfully loaded: McDonalds-${photoNumber}.jpg`);
+            };
+            
+            photoItem.appendChild(img);
+            photoGrid.appendChild(photoItem);
+        });
+        
+        console.log('Loaded masonry grid with 78 randomized McDonald\'s photos');
+    }
 }
 
 // Enhanced toggle video play with auto-mute/unmute
