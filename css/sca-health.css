@@ -1173,3 +1173,36 @@
 
 /* Mobile content showcase styles moved to main mobile section above */
 
+/* FINAL MOBILE SCROLL ARROW OVERRIDE - Must be at the very end to override desktop styles */
+@media (max-width: 768px) {
+    .landscape-thumbnails .scroll-arrow,
+    .photos-section .scroll-arrow,
+    .vertical-video-section .scroll-arrow {
+        width: 44px !important;
+        height: 44px !important;
+        font-size: 20px !important;
+        background: rgba(0, 0, 0, 0.25) !important;
+        border-radius: 50% !important;
+        flex: none !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        color: #000 !important;
+        font-weight: bold !important;
+        border: 2px solid rgba(0, 0, 0, 0.4) !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        position: relative !important;
+        z-index: 1000 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    
+    .landscape-thumbnails .scroll-arrow:active,
+    .photos-section .scroll-arrow:active,
+    .vertical-video-section .scroll-arrow:active {
+        background: rgba(0, 0, 0, 0.4) !important;
+        transform: scale(0.9) !important;
+    }
+}
+
