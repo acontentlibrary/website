@@ -395,7 +395,7 @@
 }
 
 /* Responsive Design */
-@media (max-width: 1200px) {
+@media (max-width: 1400px) {
     .mcdonalds-hero {
         padding: 100px 48px 60px;
     }
@@ -405,7 +405,7 @@
     }
     
     .mcdonalds-hero .hero-photo {
-        width: 800px;
+        width: 700px;
         max-width: 100%;
     }
     
@@ -418,8 +418,43 @@
     .mcdonalds-hero .hero-text p {
         font-size: 22px;
         line-height: 32px;
-        width: 600px;
+        width: 500px;
         max-width: 100%;
+    }
+    
+    .process-step {
+        padding: 60px 48px;
+    }
+    
+    .step-content {
+        gap: 60px;
+    }
+    
+    .step-info {
+        max-width: 450px;
+    }
+    
+    .step-media {
+        max-width: 550px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .mcdonalds-hero .hero-photo {
+        width: 600px;
+    }
+    
+    .mcdonalds-hero .hero-text p {
+        width: 450px;
+    }
+    
+    .step-content {
+        gap: 50px;
+    }
+    
+    .mcdonalds-photo-grid {
+        columns: 3;
+        column-gap: 14px;
     }
 }
 
