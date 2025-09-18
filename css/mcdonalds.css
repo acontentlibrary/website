@@ -439,7 +439,7 @@
     }
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1700px) {
     .mcdonalds-hero .hero-photo {
         width: 600px;
     }
@@ -449,7 +449,21 @@
     }
     
     .step-content {
-        gap: 50px;
+        gap: 40px;
+    }
+    
+    .step-media {
+        max-width: 500px;
+    }
+    
+    .route-maps {
+        flex-direction: column;
+        gap: 16px;
+    }
+    
+    .route-map-photo {
+        height: 200px;
+        width: 100%;
     }
     
     .mcdonalds-photo-grid {
