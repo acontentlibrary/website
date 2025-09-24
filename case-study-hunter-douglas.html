@@ -4,6 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hunter Douglas Case Study - A Content Library</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/svg+xml" href="header-icon.svg">
+    <meta property="og:title" content="Hunter Douglas Case Study - A Content Library">
+    <meta property="og:description" content="Turning client shot lists into polished, vertical content for Hunter Douglas social media">
+    <meta property="og:image" content="https://www.acontentlibrary.com/Social-Link-Img.jpg">
+    <meta property="og:url" content="https://www.acontentlibrary.com/case-study-hunter-douglas.html">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Hunter Douglas Case Study - A Content Library">
+    <meta name="twitter:description" content="Turning client shot lists into polished, vertical content for Hunter Douglas social media">
+    <meta name="twitter:image" content="https://www.acontentlibrary.com/Social-Link-Img.jpg">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/hunter-douglas.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,7 +25,7 @@
     <!-- Header -->
     <header class="header">
         <nav class="nav">
-            <div class="nav-brand">
+            <div class="nav-brand" onclick="window.location.href='index.html'" style="cursor: pointer;">
                 <div class="brand-icon">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect x="2" y="3" width="20" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
@@ -37,9 +48,221 @@
 
     <!-- Hero Section -->
     <section class="hunter-douglas-hero">
-        <div class="construction-badge">🚧 Under Construction</div>
-        <h1>Hunter Douglas</h1>
-        <p>This case study page is currently being built. Check back soon to see how we created compelling product showcases and brand storytelling content.</p>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Hunter Douglas.</h1>
+                <p>We turned client shot lists into polished, vertical content, captured on iPhone, aligned to platform trends, and ready to post the same day.</p>
+            </div>
+            <div class="hero-video">
+                <div class="video-container">
+                    <video id="hd-hero-video" muted autoplay loop playsinline>
+                        <source src="https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/4_Hunter%20Douglas/Featured%20Media/HD_1.mov" type="video/mp4">
+                    </video>
+                    <button class="unmute-button" id="hd-unmute-btn" onclick="toggleMute('hd-hero-video', 'hd-unmute-btn')">
+                        <svg class="mute-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                            <path d="M3 9v6h4l5 5V4L7 9H3z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M15.54 8.46a5 5 0 0 1 0 7.07" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M17.66 6.34a9 9 0 0 1 0 11.32" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <svg class="unmute-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: block;">
+                            <path d="M3 9v6h4l5 5V4L7 9H3z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M23 9l-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M17 9l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process & Content Section -->
+    <section class="hd-process-section">
+        <div class="process-container">
+            <div class="section-header">
+                <div class="header-content">
+                    <span class="label">Our Process</span>
+                    <h2>From Shot Lists to Social Ready<br><span class="subtitle">A systematic approach to mobile-first content</span></h2>
+                </div>
+            </div>
+
+            <!-- Step 1: Identify Problems -->
+            <div class="process-step" id="step-identify">
+                <div class="step-content">
+                    <div class="step-info">
+                        <div class="step-number">01</div>
+                        <div class="step-details">
+                            <h3>Identify Problems</h3>
+                            <p>Planned ideas, but not platform-ready or scalable.</p>
+                            <div class="step-subscript">
+                                <p>Hunter Douglas had concepts and locations, but needed authentic, mobile-first video that matched Reels/TikTok norms, looked natural (not "ad-y"), and could be produced quickly across campaigns. Existing workflows were slow, horizontal-biased, and inconsistent in framing, captions, and file delivery.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step-media">
+                        <div class="vertical-video-showcase">
+                            <div class="vertical-video-grid">
+                                <div class="vertical-video-item" id="section1-phone-mockup">
+                                    <video id="hd-section1-video1" muted playsinline>
+                                        <source src="https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/4_Hunter%20Douglas/Featured%20Media/HD_MI_1.MOV" type="video/mp4">
+                                    </video>
+                                    <video id="hd-section1-video2" muted playsinline>
+                                        <source src="https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/4_Hunter%20Douglas/Featured%20Media/HD_SM_10.MOV" type="video/mp4">
+                                    </video>
+                                    <video id="hd-section1-video3" muted playsinline>
+                                        <source src="https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/4_Hunter%20Douglas/Featured%20Media/HD_MI_2.MOV" type="video/mp4">
+                                    </video>
+                                    
+                                    <!-- Video Controls -->
+                                    <button class="play-pause-btn" id="section1-play-pause">
+                                        <svg class="play-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M8 5v14l11-7z"/>
+                                        </svg>
+                                        <svg class="pause-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
+                                            <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+                                        </svg>
+                                    </button>
+                                    
+                                    <button class="mute-btn" id="section1-mute">
+                                        <svg class="volume-on" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
+                                            <path d="M3 9v6h4l5 5V4L7 9H3z"/>
+                                            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+                                            <path d="M17.66 6.34a9 9 0 0 1 0 11.32"/>
+                                        </svg>
+                                        <svg class="volume-off" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M3 9v6h4l5 5V4L7 9H3z"/>
+                                            <path d="M23 9l-6 6"/>
+                                            <path d="M17 9l6 6"/>
+                                        </svg>
+                                    </button>
+                                    
+                                    <!-- Progress Bar -->
+                                    <div class="video-progress">
+                                        <div class="video-progress-bar" id="section1-progress"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2: Discover Opportunities -->
+            <div class="process-step" id="step-opportunities">
+                <div class="step-content reverse">
+                    <div class="step-media">
+                        <div class="vertical-video-showcase">
+                            <div class="vertical-video-grid">
+                                <div class="vertical-video-item" onclick="expandVideo(this)">
+                                    <video muted loop preload="auto" playsinline>
+                                        <source src="https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/4_Hunter%20Douglas/Featured%20Media/HD_Summer_3.mov" type="video/mp4">
+                                    </video>
+                                    <div class="play-overlay">▶</div>
+                                </div>
+                                <div class="vertical-video-item" onclick="expandVideo(this)">
+                                    <video muted loop preload="auto" playsinline>
+                                        <source src="https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/4_Hunter%20Douglas/Featured%20Media/HD_SM_9.mp4" type="video/mp4">
+                                    </video>
+                                    <div class="play-overlay">▶</div>
+                                </div>
+                                <div class="vertical-video-item" onclick="expandVideo(this)">
+                                    <video muted loop preload="auto" playsinline>
+                                        <source src="https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/4_Hunter%20Douglas/Featured%20Media/HD_Summer_2.mov" type="video/mp4">
+                                    </video>
+                                    <div class="play-overlay">▶</div>
+                                </div>
+                                <div class="vertical-video-item" onclick="expandVideo(this)">
+                                    <video muted loop preload="auto" playsinline>
+                                        <source src="https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/4_Hunter%20Douglas/Featured%20Media/HD_SM_6.mp4" type="video/mp4">
+                                    </video>
+                                    <div class="play-overlay">▶</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step-info">
+                        <div class="step-number">02</div>
+                        <div class="step-details">
+                            <h3>Discover Opportunities</h3>
+                            <p>Lean, native capture + repeatable social formats.</p>
+                            <div class="step-subscript">
+                                <p>We shifted to iPhone-native, vertical masters with creator-style framing, quick hooks, and trend-aware pacing. Batch shoots at each location yielded multiple formats per scene (how-to, before/after, swipe-through, testimonial), plus baked-in captions for silent autoplay and easy cross-posting.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3: Refine Creative Vision -->
+            <div class="process-step" id="step-refine">
+                <div class="step-content section3-layout">
+                    <div class="step-info">
+                        <div class="step-number">03</div>
+                        <div class="step-details">
+                            <h3>Refine the Creative Vision</h3>
+                            <p>A simple playbook that ships fast and stays on brand.</p>
+                            <div class="step-subscript">
+                                <p>We defined a light shot ladder (wide context → feature close-ups → payoff), text/overlay rules, logo safe-areas, and color/lighting guidelines. Deliverables included 6–15s and 30s cutdowns, thumbnails, SRT captions, and organized folders with clear naming—so teams can grab, post, and reuse without re-editing.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step-media">
+                        <div class="section3-video-container">
+                            <div class="vertical-video-item" onclick="expandVideo(this)">
+                                <video muted loop preload="auto" playsinline>
+                                    <source src="https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/4_Hunter%20Douglas/Featured%20Media/HD_SM_12.mp4" type="video/mp4">
+                                </video>
+                                <div class="play-overlay">▶</div>
+                            </div>
+                            
+                            <div class="vertical-video-item" onclick="expandVideo(this)">
+                                <video muted loop preload="auto" playsinline>
+                                    <source src="https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/4_Hunter%20Douglas/Featured%20Media/HD_SM_8.mp4" type="video/mp4">
+                                </video>
+                                <div class="play-overlay">▶</div>
+                            </div>
+                            
+                            <div class="vertical-video-item" onclick="expandVideo(this)">
+                                <video muted loop preload="auto" playsinline>
+                                    <source src="https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/4_Hunter%20Douglas/Featured%20Media/HD_SM_4.MOV" type="video/mp4">
+                                </video>
+                                <div class="play-overlay">▶</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Library Section -->
+    <section class="hd-process-section">
+        <div class="process-container">
+            <div class="section-header">
+                <div class="header-content">
+                    <span class="label">Our Product</span>
+                    <h2>A Complete Social Media Library<br><span class="subtitle">27 vertical videos ready to post</span></h2>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vertical Video Gallery Section -->
+    <section class="vertical-video-gallery-section">
+        <div class="gallery-container">
+            <!-- Main Video Player - Centered -->
+            <div class="main-video-player-container">
+                <div class="main-video-player" id="main-video-player">
+                    <video id="gallery-main-video" muted loop controls>
+                        <!-- Will be loaded by JavaScript -->
+                    </video>
+                </div>
+            </div>
+            
+            <!-- Video Thumbnail Grid - 3x9 layout -->
+            <div class="video-thumbnail-grid" id="video-thumbnail-grid">
+                <!-- 27 thumbnails will be loaded by JavaScript -->
+            </div>
+        </div>
     </section>
 
     <script src="script.js"></script>

@@ -47,6 +47,19 @@ document.addEventListener('DOMContentLoaded', function() {
         loadMcDonaldsPhotos();
     }
     
+    // Load Hunter Douglas media library
+    if (document.querySelector('.video-thumbnail-grid')) {
+        initializeHunterDouglasMediaLibrary();
+    }
+    
+    // Initialize Hunter Douglas auto-cycling videos for Section 1
+    if (document.getElementById('section1-phone-mockup')) {
+        initializeSection1AutoCycle();
+    }
+    
+    // Force Section 2 & 3 video thumbnails to load
+    initializeSectionThumbnails();
+    
     const videos = [
         { src: 'https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/1_HomePage/Hunter%20Douglas_1.mov', username: 'Hunter Douglas' },
         { src: 'https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/1_HomePage/HBIC.mp4', username: 'Head Bartender in Charge' },
@@ -1048,4 +1061,422 @@ function toggleVideoPlay(element) {
             if (playButton) playButton.style.opacity = '1';
         }
     }
+}
+
+// Initialize Hunter Douglas Media Library with main player and thumbnail grid
+function initializeHunterDouglasMediaLibrary() {
+    console.log('Initializing Hunter Douglas Media Library...');
+    
+    const mainVideoPlayer = document.getElementById('gallery-main-video');
+    const thumbnailGrid = document.getElementById('video-thumbnail-grid');
+    
+    if (!mainVideoPlayer || !thumbnailGrid) {
+        console.error('Media library elements not found');
+        return;
+    }
+    
+    // All 27 Hunter Douglas videos
+    const hdVideos = [
+        'HD_Aria_1.mov',
+        'HD_At Home_1.mov',
+        'HD_At Home_2.mov',
+        'HD_At Home_3.mov',
+        'HD_MI_1.MOV',
+        'HD_MI_2.MOV',
+        'HD_SM_1.mov',
+        'HD_SM_2.mp4',
+        'HD_SM_3.MOV',
+        'HD_SM_4.MOV',
+        'HD_SM_5.MOV',
+        'HD_SM_6.mp4',
+        'HD_SM_7.mp4',
+        'HD_SM_8.mp4',
+        'HD_SM_9.mp4',
+        'HD_SM_10.MOV',
+        'HD_SM_11.mp4',
+        'HD_SM_12.mp4',
+        'HD_Solar_1.mov',
+        'HD_Summer_1.mov',
+        'HD_Summer_2.mov',
+        'HD_Summer_3.mov',
+        'HD_Summer_4.mov',
+        'HD_Summer_5.mov',
+        'HD_Summer_6.mov',
+        'HD_Summer_7.mov',
+        'HD_Summer_9.mov'
+    ];
+    
+    let currentActiveIndex = 0;
+    
+    // Load first video into main player
+    function loadVideoIntoPlayer(videoFilename, index) {
+        const videoUrl = `https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/4_Hunter%20Douglas/Featured%20Media/${encodeURIComponent(videoFilename)}`;
+        
+        // Update main player
+        const source = mainVideoPlayer.querySelector('source') || document.createElement('source');
+        source.src = videoUrl;
+        source.type = 'video/mp4';
+        
+        if (!mainVideoPlayer.querySelector('source')) {
+            mainVideoPlayer.appendChild(source);
+        }
+        
+        mainVideoPlayer.load();
+        mainVideoPlayer.play().catch(e => console.log('Auto-play prevented:', e));
+        
+        // Update active thumbnail
+        document.querySelectorAll('.video-thumbnail').forEach((thumb, i) => {
+            thumb.classList.toggle('active', i === index);
+        });
+        
+        currentActiveIndex = index;
+        console.log(`Loaded video ${index + 1}: ${videoFilename}`);
+    }
+    
+    // Create thumbnails
+    hdVideos.forEach((videoFilename, index) => {
+        const thumbnail = document.createElement('div');
+        thumbnail.className = 'video-thumbnail';
+        if (index === 0) thumbnail.classList.add('active'); // First thumbnail starts active
+        
+        const video = document.createElement('video');
+        video.muted = true;
+        video.preload = 'metadata';
+        video.playsInline = true;
+        video.setAttribute('playsinline', '');
+        
+        const videoUrl = `https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/4_Hunter%20Douglas/Featured%20Media/${encodeURIComponent(videoFilename)}`;
+        
+        const source = document.createElement('source');
+        source.src = videoUrl;
+        source.type = 'video/mp4';
+        
+        video.appendChild(source);
+        video.src = videoUrl; // Set src directly as fallback
+        
+        const playOverlay = document.createElement('div');
+        playOverlay.className = 'thumb-play-overlay';
+        playOverlay.innerHTML = '▶';
+        
+        // Click handler to load video into main player
+        thumbnail.addEventListener('click', () => {
+            loadVideoIntoPlayer(videoFilename, index);
+        });
+        
+        // Add loading and error handling
+        video.onloadedmetadata = () => {
+            console.log(`Thumbnail metadata loaded: ${videoFilename}`);
+            // Seek to 0.5 seconds to get a good thumbnail frame
+            video.currentTime = 0.5;
+        };
+        
+        video.onloadeddata = () => {
+            console.log(`Thumbnail data loaded: ${videoFilename}`);
+        };
+        
+        video.onseeked = () => {
+            // Force display of the seeked frame
+            video.style.opacity = '1';
+        };
+        
+        video.onerror = () => {
+            console.error(`Failed to load thumbnail: ${videoFilename}`);
+            // Show placeholder instead of hiding
+            thumbnail.innerHTML = `
+                <div style="width: 100%; height: 100%; background: #333; display: flex; align-items: center; justify-content: center; color: #666; font-size: 10px; text-align: center;">
+                    Video<br>Unavailable
+                </div>
+            `;
+        };
+        
+        thumbnail.appendChild(video);
+        thumbnail.appendChild(playOverlay);
+        thumbnailGrid.appendChild(thumbnail);
+    });
+    
+    // Auto-load first video
+    loadVideoIntoPlayer(hdVideos[0], 0);
+    
+    console.log(`Media library initialized with ${hdVideos.length} videos`);
+}
+
+// Initialize Section 1 auto-cycling videos with controls
+function initializeSection1AutoCycle() {
+    console.log('Initializing Section 1 auto-cycling videos...');
+    
+    const videos = [
+        document.getElementById('hd-section1-video1'),
+        document.getElementById('hd-section1-video2'),
+        document.getElementById('hd-section1-video3')
+    ];
+    
+    const playPauseBtn = document.getElementById('section1-play-pause');
+    const muteBtn = document.getElementById('section1-mute');
+    const progressBar = document.getElementById('section1-progress');
+    
+    if (!videos[0] || !videos[1] || !videos[2]) {
+        console.error('Section 1 videos not found');
+        return;
+    }
+    
+    let currentVideoIndex = 0;
+    let isTransitioning = false;
+    let isPaused = false;
+    let isMuted = true;
+    
+    // Start with first video - with mobile handling
+    videos[0].classList.add('active');
+    videos[0].currentTime = 0;
+    
+    // Try to play - if prevented, wait for user interaction
+    videos[0].play().then(() => {
+        console.log('Auto-play succeeded');
+    }).catch(e => {
+        console.log('Auto-play prevented, waiting for user interaction:', e);
+        // On mobile, wait for touch on Section 1 specifically
+        const section1Container = document.getElementById('section1-phone-mockup');
+        if (section1Container) {
+            section1Container.addEventListener('touchstart', function startOnTouch() {
+                videos[0].play().catch(e => console.log('Touch play failed:', e));
+                section1Container.removeEventListener('touchstart', startOnTouch);
+            }, { once: true });
+        }
+    });
+    
+    function switchToNextVideo() {
+        if (isTransitioning) return;
+        
+        isTransitioning = true;
+        const currentVideo = videos[currentVideoIndex];
+        const nextIndex = (currentVideoIndex + 1) % videos.length;
+        const nextVideo = videos[nextIndex];
+        
+        // Fade out current video
+        currentVideo.classList.remove('active');
+        currentVideo.pause();
+        currentVideo.currentTime = 0;
+        
+        // Wait for fade transition, then fade in next video
+        setTimeout(() => {
+            currentVideoIndex = nextIndex;
+            nextVideo.classList.add('active');
+            nextVideo.currentTime = 0;
+            nextVideo.muted = isMuted;
+            if (!isPaused) {
+                nextVideo.play().then(() => {
+                    console.log('Video switch succeeded');
+                }).catch(e => {
+                    console.log('Video switch auto-play prevented:', e);
+                    // Show the video frame even if can't autoplay
+                    nextVideo.currentTime = 0.1;
+                });
+            }
+            isTransitioning = false;
+        }, 500); // Match CSS transition duration
+    }
+    
+    function getCurrentVideo() {
+        return videos[currentVideoIndex];
+    }
+    
+    function updateProgressBar() {
+        const currentVideo = getCurrentVideo();
+        if (currentVideo && currentVideo.duration > 0) {
+            const progress = (currentVideo.currentTime / currentVideo.duration) * 100;
+            progressBar.style.width = progress + '%';
+        }
+    }
+    
+    // Play/Pause button functionality
+    if (playPauseBtn) {
+        playPauseBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const currentVideo = getCurrentVideo();
+            const playIcon = playPauseBtn.querySelector('.play-icon');
+            const pauseIcon = playPauseBtn.querySelector('.pause-icon');
+            
+            if (isPaused) {
+                currentVideo.play().catch(e => console.log('Play prevented:', e));
+                isPaused = false;
+                playIcon.style.display = 'none';
+                pauseIcon.style.display = 'block';
+            } else {
+                currentVideo.pause();
+                isPaused = true;
+                playIcon.style.display = 'block';
+                pauseIcon.style.display = 'none';
+            }
+        });
+    }
+    
+    // Mute/Unmute button functionality
+    if (muteBtn) {
+        muteBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const currentVideo = getCurrentVideo();
+            const volumeOn = muteBtn.querySelector('.volume-on');
+            const volumeOff = muteBtn.querySelector('.volume-off');
+            
+            if (isMuted) {
+                currentVideo.muted = false;
+                isMuted = false;
+                volumeOn.style.display = 'block';
+                volumeOff.style.display = 'none';
+            } else {
+                currentVideo.muted = true;
+                isMuted = true;
+                volumeOn.style.display = 'none';
+                volumeOff.style.display = 'block';
+            }
+        });
+    }
+    
+    // Listen for video events
+    videos.forEach((video, index) => {
+        video.addEventListener('ended', () => {
+            if (index === currentVideoIndex && !isTransitioning && !isPaused) {
+                switchToNextVideo();
+            }
+        });
+        
+        video.addEventListener('timeupdate', () => {
+            if (index === currentVideoIndex) {
+                updateProgressBar();
+            }
+        });
+        
+        video.addEventListener('play', () => {
+            if (index === currentVideoIndex) {
+                isPaused = false;
+                const playIcon = playPauseBtn?.querySelector('.play-icon');
+                const pauseIcon = playPauseBtn?.querySelector('.pause-icon');
+                if (playIcon && pauseIcon) {
+                    playIcon.style.display = 'none';
+                    pauseIcon.style.display = 'block';
+                }
+            }
+        });
+        
+        video.addEventListener('pause', () => {
+            if (index === currentVideoIndex) {
+                const playIcon = playPauseBtn?.querySelector('.play-icon');
+                const pauseIcon = playPauseBtn?.querySelector('.pause-icon');
+                if (playIcon && pauseIcon) {
+                    playIcon.style.display = 'block';
+                    pauseIcon.style.display = 'none';
+                }
+            }
+        });
+        
+        video.addEventListener('error', () => {
+            console.error(`Error loading video ${index + 1}`);
+            if (index === currentVideoIndex && !isTransitioning) {
+                switchToNextVideo();
+            }
+        });
+        
+        video.addEventListener('loadedmetadata', () => {
+            console.log(`Section 1 video ${index + 1} loaded successfully`);
+        });
+    });
+    
+    console.log('Section 1 auto-cycling with controls initialized');
+}
+
+// Force Section 2 & 3 video thumbnails to load
+function initializeSectionThumbnails() {
+    console.log('Initializing Section 2 & 3 thumbnails...');
+    
+    // Find all videos in Sections 2 & 3
+    const section2Videos = document.querySelectorAll('#step-opportunities .vertical-video-item video');
+    const section3Videos = document.querySelectorAll('#step-refine .vertical-video-item video');
+    
+    [...section2Videos, ...section3Videos].forEach((video, index) => {
+        video.addEventListener('loadedmetadata', () => {
+            console.log(`Section thumbnail ${index + 1} metadata loaded`);
+            // Seek to 1 second to get a good frame
+            video.currentTime = 1;
+        });
+        
+        video.addEventListener('seeked', () => {
+            console.log(`Section thumbnail ${index + 1} seeked to frame`);
+            // Ensure the frame is visible
+            video.style.opacity = '1';
+        });
+        
+        video.addEventListener('loadeddata', () => {
+            console.log(`Section thumbnail ${index + 1} data loaded`);
+            // Force load first frame
+            video.currentTime = 0.5;
+        });
+        
+        video.addEventListener('error', (e) => {
+            console.error(`Section thumbnail ${index + 1} failed to load:`, e);
+            // Show placeholder
+            video.parentElement.style.background = '#333';
+            video.parentElement.innerHTML = `
+                <div style="width: 100%; height: 100%; background: #333; display: flex; align-items: center; justify-content: center; color: #666; font-size: 12px;">
+                    Video ${index + 1}
+                </div>
+            `;
+        });
+        
+        // Force load
+        video.load();
+    });
+    
+    console.log(`Initialized ${section2Videos.length + section3Videos.length} section thumbnails`);
+}
+
+// Expand video to fullscreen overlay
+function expandVideo(videoContainer) {
+    const video = videoContainer.querySelector('video');
+    if (!video) return;
+    
+    // Create fullscreen overlay
+    const overlay = document.createElement('div');
+    overlay.className = 'video-fullscreen-overlay';
+    overlay.innerHTML = `
+        <div class="fullscreen-video-container">
+            <video autoplay muted loop controls>
+                <source src="${video.querySelector('source').src}" type="video/mp4">
+            </video>
+            <button class="close-fullscreen" onclick="closeVideoFullscreen(this)">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+    `;
+    
+    document.body.appendChild(overlay);
+    
+    // Prevent body scroll
+    document.body.style.overflow = 'hidden';
+    
+    // Add click-off functionality
+    overlay.addEventListener('click', (e) => {
+        // Only close if clicking on the overlay itself, not the video
+        if (e.target === overlay) {
+            closeVideoFullscreen(overlay.querySelector('.close-fullscreen'));
+        }
+    });
+    
+    // Animate in
+    setTimeout(() => overlay.classList.add('active'), 10);
+}
+
+// Close fullscreen video
+function closeVideoFullscreen(closeBtn) {
+    const overlay = closeBtn.closest('.video-fullscreen-overlay');
+    
+    // Animate out
+    overlay.classList.remove('active');
+    
+    // Remove overlay after animation
+    setTimeout(() => {
+        document.body.removeChild(overlay);
+        document.body.style.overflow = '';
+    }, 300);
 }
