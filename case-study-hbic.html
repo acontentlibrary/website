@@ -4,6 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Head Bartender in Charge Case Study - A Content Library</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/svg+xml" href="header-icon.svg">
+    <meta property="og:title" content="Head Bartender in Charge Case Study - A Content Library">
+    <meta property="og:description" content="Turning HBIC's curriculum into branded, platform-native content series">
+    <meta property="og:image" content="https://www.acontentlibrary.com/Social-Link-Img.jpg">
+    <meta property="og:url" content="https://www.acontentlibrary.com/case-study-hbic.html">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Head Bartender in Charge Case Study - A Content Library">
+    <meta name="twitter:description" content="Turning HBIC's curriculum into branded, platform-native content series">
+    <meta name="twitter:image" content="https://www.acontentlibrary.com/Social-Link-Img.jpg">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/hbic.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,7 +25,7 @@
     <!-- Header -->
     <header class="header">
         <nav class="nav">
-            <div class="nav-brand">
+            <div class="nav-brand" onclick="window.location.href='index.html'" style="cursor: pointer;">
                 <div class="brand-icon">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect x="2" y="3" width="20" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
@@ -37,9 +48,224 @@
 
     <!-- Hero Section -->
     <section class="hbic-hero">
-        <div class="construction-badge">🚧 Under Construction</div>
+        <div class="hero-content">
+            <div class="hero-text">
         <h1>Head Bartender in Charge</h1>
-        <p>This case study page is currently being built. Check back soon to see how we showcased the artistry and personality behind craft cocktail culture.</p>
+                <p>We turned HBIC's curriculum into a branded, platform-native series—shot for vertical and horizontal, packaged with graphics, and ready to post anywhere.</p>
+            </div>
+            <div class="hero-video">
+                <div class="video-container">
+                    <video id="hbic-hero-video" muted autoplay loop playsinline>
+                        <source src="https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/5_Head%20Bartender%20In%20Charge/Featured%20Media/HBIC_0.mov" type="video/mp4">
+                    </video>
+                    <button class="unmute-button" id="hbic-unmute-btn" onclick="toggleMute('hbic-hero-video', 'hbic-unmute-btn')">
+                        <svg class="mute-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                            <path d="M3 9v6h4l5 5V4L7 9H3z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M15.54 8.46a5 5 0 0 1 0 7.07" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M17.66 6.34a9 9 0 0 1 0 11.32" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <svg class="unmute-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: block;">
+                            <path d="M3 9v6h4l5 5V4L7 9H3z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M23 9l-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M17 9l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process & Content Section -->
+    <section class="hbic-process-section">
+        <div class="process-container">
+            <div class="section-header">
+                <div class="header-content">
+                    <span class="label">Our Process</span>
+                    <h2>From Curriculum to Content Series<br><span class="subtitle">A systematic approach to educational content</span></h2>
+                </div>
+            </div>
+
+            <!-- Step 1: Identify Problems -->
+            <div class="process-step" id="step-identify">
+                <div class="step-content">
+                    <div class="step-info">
+                        <div class="step-number">01</div>
+                        <div class="step-details">
+                            <h3>Identify Problems</h3>
+                            <p>Strong brand, no repeatable content system.</p>
+                            <div class="step-subscript">
+                                <p>HBIC had recipes, voice, and community, but not a scalable series format. Videos needed to feel native to Reels/YouTube/TikTok, keep a consistent look, and support the subscription model—without rebuilding from scratch each episode.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step-media">
+                        <div class="single-video-showcase">
+                            <div class="video-player" id="hbic-section1-player">
+                                <video id="hbic-section1-video" muted loop playsinline>
+                                    <source src="https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/5_Head%20Bartender%20In%20Charge/Featured%20Media/HBIC_1.mp4" type="video/mp4">
+                                </video>
+                                <button class="play-pause-btn" id="hbic-section1-play">
+                                    <svg class="play-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M8 5v14l11-7z"/>
+                                    </svg>
+                                    <svg class="pause-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
+                                        <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+                                    </svg>
+                                </button>
+                                <button class="mute-btn" id="hbic-section1-mute">
+                                    <svg class="volume-on" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
+                                        <path d="M3 9v6h4l5 5V4L7 9H3z"/>
+                                        <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+                                        <path d="M17.66 6.34a9 9 0 0 1 0 11.32"/>
+                                    </svg>
+                                    <svg class="volume-off" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M3 9v6h4l5 5V4L7 9H3z"/>
+                                        <path d="M23 9l-6 6"/>
+                                        <path d="M17 9l6 6"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2: Discover Opportunities -->
+            <div class="process-step" id="step-opportunities">
+                <div class="step-content reverse">
+                    <div class="step-media">
+                        <div class="single-video-showcase">
+                            <div class="video-player" id="hbic-section2-player">
+                                <video id="hbic-section2-video" muted loop playsinline>
+                                    <source src="https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/5_Head%20Bartender%20In%20Charge/Featured%20Media/HBIC_2.mp4" type="video/mp4">
+                                </video>
+                                <button class="play-pause-btn" id="hbic-section2-play">
+                                    <svg class="play-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M8 5v14l11-7z"/>
+                                    </svg>
+                                    <svg class="pause-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
+                                        <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+                                    </svg>
+                                </button>
+                                <button class="mute-btn" id="hbic-section2-mute">
+                                    <svg class="volume-on" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
+                                        <path d="M3 9v6h4l5 5V4L7 9H3z"/>
+                                        <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+                                        <path d="M17.66 6.34a9 9 0 0 1 0 11.32"/>
+                                    </svg>
+                                    <svg class="volume-off" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M3 9v6h4l5 5V4L7 9H3z"/>
+                                        <path d="M23 9l-6 6"/>
+                                        <path d="M17 9l6 6"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step-info">
+                        <div class="step-number">02</div>
+                        <div class="step-details">
+                            <h3>Discover Opportunities</h3>
+                            <p>A class-to-camera kit built for batching.</p>
+                            <div class="step-subscript">
+                                <p>We defined an episode blueprint—hook → ingredients → technique → pour/garnish → quick CTA—plus shot lists, short scripts, and a creator-style set. Every recipe is captured in 9:16 and 16:9, with on-screen ingredient cards, captions for silent autoplay, and recurring themes (Home Bar 101, Spirit Deep Dives, Classics Remixed).</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3: Refine Creative Vision -->
+            <div class="process-step" id="step-refine">
+                <div class="step-content section3-layout">
+                    <div class="step-info">
+                        <div class="step-number">03</div>
+                        <div class="step-details">
+                            <h3>Refine the Creative Vision</h3>
+                            <p>A branded tutorial system that ships everywhere.</p>
+                            <div class="step-subscript">
+                                <p>Deliverables include master templates (9:16/16:9/1:1), lower thirds, ingredient graphics, motion open/close, music beds, thumbnails, and SEO copy blocks. The library is tagged by base spirit, technique, and difficulty, with a style guide so new episodes slot in cleanly—and promos can point to HBIC modules, virtual happy hours, and live events.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step-media">
+                        <div class="dual-video-showcase">
+                            <div class="video-player" id="hbic-section3-player1">
+                                <video id="hbic-section3-video1" muted loop playsinline>
+                                    <source src="https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/5_Head%20Bartender%20In%20Charge/Featured%20Media/HBIC_3.mp4" type="video/mp4">
+                                </video>
+                                <button class="play-pause-btn" id="hbic-section3-play1">
+                                    <svg class="play-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M8 5v14l11-7z"/>
+                                    </svg>
+                                    <svg class="pause-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
+                                        <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+                                    </svg>
+                                </button>
+                                <button class="mute-btn" id="hbic-section3-mute1">
+                                    <svg class="volume-on" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
+                                        <path d="M3 9v6h4l5 5V4L7 9H3z"/>
+                                        <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+                                        <path d="M17.66 6.34a9 9 0 0 1 0 11.32"/>
+                                    </svg>
+                                    <svg class="volume-off" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M3 9v6h4l5 5V4L7 9H3z"/>
+                                        <path d="M23 9l-6 6"/>
+                                        <path d="M17 9l6 6"/>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="video-player" id="hbic-section3-player2">
+                                <video id="hbic-section3-video2" muted loop playsinline>
+                                    <source src="https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/5_Head%20Bartender%20In%20Charge/Featured%20Media/HBIC_4.mp4" type="video/mp4">
+                                </video>
+                                <button class="play-pause-btn" id="hbic-section3-play2">
+                                    <svg class="play-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M8 5v14l11-7z"/>
+                                    </svg>
+                                    <svg class="pause-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
+                                        <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+                                    </svg>
+                                </button>
+                                <button class="mute-btn" id="hbic-section3-mute2">
+                                    <svg class="volume-on" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
+                                        <path d="M3 9v6h4l5 5V4L7 9H3z"/>
+                                        <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+                                        <path d="M17.66 6.34a9 9 0 0 1 0 11.32"/>
+                                    </svg>
+                                    <svg class="volume-off" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M3 9v6h4l5 5V4L7 9H3z"/>
+                                        <path d="M23 9l-6 6"/>
+                                        <path d="M17 9l6 6"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Library Section -->
+    <section class="hbic-process-section">
+        <div class="process-container">
+            <div class="section-header">
+                <div class="header-content">
+                    <span class="label">Our Product</span>
+                    <h2>A Complete Tutorial Library<br><span class="subtitle">Educational cocktail content made for YouTube</span></h2>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- YouTube Content Gallery Section -->
+    <section class="youtube-content-gallery-section">
+        <div class="gallery-container">
+            <div class="youtube-grid" id="youtube-grid">
+                <!-- YouTube iframes will be loaded by JavaScript -->
+            </div>
+        </div>
     </section>
 
     <script src="script.js"></script>

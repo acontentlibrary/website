@@ -60,6 +60,28 @@ document.addEventListener('DOMContentLoaded', function() {
     // Force Section 2 & 3 video thumbnails to load
     initializeSectionThumbnails();
     
+    // Initialize HBIC page functionality
+    if (document.getElementById('hbic-section1-player')) {
+        initializeHBICSection1();
+    }
+    
+    if (document.getElementById('hbic-section2-player')) {
+        initializeHBICSection2();
+    }
+    
+    if (document.getElementById('hbic-section3-player1')) {
+        initializeHBICSection3();
+    }
+    
+    // Force mobile thumbnails for HBIC videos
+    if (document.getElementById('hbic-section1-video')) {
+        initializeHBICMobileThumbnails();
+    }
+    
+    if (document.getElementById('youtube-grid')) {
+        loadHBICYouTubeVideos();
+    }
+    
     const videos = [
         { src: 'https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/1_HomePage/Hunter%20Douglas_1.mov', username: 'Hunter Douglas' },
         { src: 'https://pub-205f64340132450ea6c89c949f8a8d5b.r2.dev/Media/1_HomePage/HBIC.mp4', username: 'Head Bartender in Charge' },
@@ -1479,4 +1501,330 @@ function closeVideoFullscreen(closeBtn) {
         document.body.removeChild(overlay);
         document.body.style.overflow = '';
     }, 300);
+}
+
+// Initialize HBIC Section 1 video player
+function initializeHBICSection1() {
+    console.log('Initializing HBIC Section 1 video player...');
+    
+    const video = document.getElementById('hbic-section1-video');
+    const playPauseBtn = document.getElementById('hbic-section1-play');
+    const muteBtn = document.getElementById('hbic-section1-mute');
+    
+    if (!video || !playPauseBtn || !muteBtn) {
+        console.error('HBIC Section 1 elements not found');
+        return;
+    }
+    
+    let isPaused = true;
+    let isMuted = true;
+    
+    // Add event listeners for external pause/play events
+    video.addEventListener('pause', () => {
+        isPaused = true;
+        const playIcon = playPauseBtn.querySelector('.play-icon');
+        const pauseIcon = playPauseBtn.querySelector('.pause-icon');
+        playIcon.style.display = 'block';
+        pauseIcon.style.display = 'none';
+    });
+    
+    video.addEventListener('play', () => {
+        isPaused = false;
+        const playIcon = playPauseBtn.querySelector('.play-icon');
+        const pauseIcon = playPauseBtn.querySelector('.pause-icon');
+        playIcon.style.display = 'none';
+        pauseIcon.style.display = 'block';
+    });
+    
+    // Play/Pause functionality
+    playPauseBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const playIcon = playPauseBtn.querySelector('.play-icon');
+        const pauseIcon = playPauseBtn.querySelector('.pause-icon');
+        
+        if (isPaused) {
+            pauseAllHBICVideos(video);
+            video.play().catch(e => console.log('Play prevented:', e));
+            isPaused = false;
+            playIcon.style.display = 'none';
+            pauseIcon.style.display = 'block';
+        } else {
+            video.pause();
+            isPaused = true;
+            playIcon.style.display = 'block';
+            pauseIcon.style.display = 'none';
+        }
+    });
+    
+    // Mute/Unmute functionality
+    muteBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const volumeOn = muteBtn.querySelector('.volume-on');
+        const volumeOff = muteBtn.querySelector('.volume-off');
+        
+        if (isMuted) {
+            video.muted = false;
+            isMuted = false;
+            volumeOn.style.display = 'block';
+            volumeOff.style.display = 'none';
+        } else {
+            video.muted = true;
+            isMuted = true;
+            volumeOn.style.display = 'none';
+            volumeOff.style.display = 'block';
+        }
+    });
+    
+    console.log('HBIC Section 1 initialized');
+}
+
+// Helper function to pause all HBIC videos except the current one
+function pauseAllHBICVideos(exceptVideo) {
+    const allHBICVideos = [
+        document.getElementById('hbic-section1-video'),
+        document.getElementById('hbic-section2-video'),
+        document.getElementById('hbic-section3-video1'),
+        document.getElementById('hbic-section3-video2')
+    ];
+    
+    allHBICVideos.forEach(video => {
+        if (video && video !== exceptVideo && !video.paused) {
+            video.pause();
+            console.log('Paused other HBIC video');
+        }
+    });
+}
+
+// Initialize HBIC Section 2 video player (same as Section 1)
+function initializeHBICSection2() {
+    console.log('Initializing HBIC Section 2 video player...');
+    
+    const video = document.getElementById('hbic-section2-video');
+    const playPauseBtn = document.getElementById('hbic-section2-play');
+    const muteBtn = document.getElementById('hbic-section2-mute');
+    
+    if (!video || !playPauseBtn || !muteBtn) {
+        console.error('HBIC Section 2 elements not found');
+        return;
+    }
+    
+    let isPaused = true;
+    let isMuted = true;
+    
+    // Add event listeners for external pause/play events
+    video.addEventListener('pause', () => {
+        isPaused = true;
+        const playIcon = playPauseBtn.querySelector('.play-icon');
+        const pauseIcon = playPauseBtn.querySelector('.pause-icon');
+        playIcon.style.display = 'block';
+        pauseIcon.style.display = 'none';
+    });
+    
+    video.addEventListener('play', () => {
+        isPaused = false;
+        const playIcon = playPauseBtn.querySelector('.play-icon');
+        const pauseIcon = playPauseBtn.querySelector('.pause-icon');
+        playIcon.style.display = 'none';
+        pauseIcon.style.display = 'block';
+    });
+    
+    // Play/Pause functionality
+    playPauseBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const playIcon = playPauseBtn.querySelector('.play-icon');
+        const pauseIcon = playPauseBtn.querySelector('.pause-icon');
+        
+        if (isPaused) {
+            pauseAllHBICVideos(video);
+            video.play().catch(e => console.log('Play prevented:', e));
+            isPaused = false;
+            playIcon.style.display = 'none';
+            pauseIcon.style.display = 'block';
+        } else {
+            video.pause();
+            isPaused = true;
+            playIcon.style.display = 'block';
+            pauseIcon.style.display = 'none';
+        }
+    });
+    
+    // Mute/Unmute functionality
+    muteBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const volumeOn = muteBtn.querySelector('.volume-on');
+        const volumeOff = muteBtn.querySelector('.volume-off');
+        
+        if (isMuted) {
+            video.muted = false;
+            isMuted = false;
+            volumeOn.style.display = 'block';
+            volumeOff.style.display = 'none';
+        } else {
+            video.muted = true;
+            isMuted = true;
+            volumeOn.style.display = 'none';
+            volumeOff.style.display = 'block';
+        }
+    });
+    
+    console.log('HBIC Section 2 initialized');
+}
+
+// Force mobile thumbnails for HBIC videos
+function initializeHBICMobileThumbnails() {
+    const hbicVideos = [
+        document.getElementById('hbic-section1-video'),
+        document.getElementById('hbic-section2-video'),
+        document.getElementById('hbic-section3-video1'),
+        document.getElementById('hbic-section3-video2')
+    ];
+    
+    hbicVideos.forEach(video => {
+        if (video) {
+            // Force load first frame for mobile thumbnails
+            video.addEventListener('loadedmetadata', () => {
+                video.currentTime = 0.1; // Seek to first frame
+            });
+            
+            video.addEventListener('seeked', () => {
+                video.style.opacity = '1'; // Ensure visibility
+            });
+            
+            // Trigger load
+            video.load();
+        }
+    });
+}
+
+// Initialize HBIC Section 3 video players (both videos)
+function initializeHBICSection3() {
+    console.log('Initializing HBIC Section 3 video players...');
+    
+    // Initialize first video
+    const video1 = document.getElementById('hbic-section3-video1');
+    const playPauseBtn1 = document.getElementById('hbic-section3-play1');
+    const muteBtn1 = document.getElementById('hbic-section3-mute1');
+    
+    // Initialize second video
+    const video2 = document.getElementById('hbic-section3-video2');
+    const playPauseBtn2 = document.getElementById('hbic-section3-play2');
+    const muteBtn2 = document.getElementById('hbic-section3-mute2');
+    
+    // Helper function to initialize a video player
+    function initializePlayer(video, playPauseBtn, muteBtn, playerName) {
+        if (!video || !playPauseBtn || !muteBtn) {
+            console.error(`HBIC ${playerName} elements not found`);
+            return;
+        }
+        
+        let isPaused = true;
+        let isMuted = true;
+        
+        // Play/Pause functionality
+        playPauseBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const playIcon = playPauseBtn.querySelector('.play-icon');
+            const pauseIcon = playPauseBtn.querySelector('.pause-icon');
+            
+            if (isPaused) {
+                pauseAllHBICVideos(video);
+                video.play().catch(e => console.log('Play prevented:', e));
+                isPaused = false;
+                playIcon.style.display = 'none';
+                pauseIcon.style.display = 'block';
+            } else {
+                video.pause();
+                isPaused = true;
+                playIcon.style.display = 'block';
+                pauseIcon.style.display = 'none';
+            }
+        });
+        
+        // Mute/Unmute functionality
+        muteBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const volumeOn = muteBtn.querySelector('.volume-on');
+            const volumeOff = muteBtn.querySelector('.volume-off');
+            
+            if (isMuted) {
+                video.muted = false;
+                isMuted = false;
+                volumeOn.style.display = 'block';
+                volumeOff.style.display = 'none';
+            } else {
+                video.muted = true;
+                isMuted = true;
+                volumeOn.style.display = 'none';
+                volumeOff.style.display = 'block';
+            }
+        });
+        
+        // Listen for external pause events to update button states
+        video.addEventListener('pause', () => {
+            isPaused = true;
+            const playIcon = playPauseBtn.querySelector('.play-icon');
+            const pauseIcon = playPauseBtn.querySelector('.pause-icon');
+            playIcon.style.display = 'block';
+            pauseIcon.style.display = 'none';
+        });
+        
+        video.addEventListener('play', () => {
+            isPaused = false;
+            const playIcon = playPauseBtn.querySelector('.play-icon');
+            const pauseIcon = playPauseBtn.querySelector('.pause-icon');
+            playIcon.style.display = 'none';
+            pauseIcon.style.display = 'block';
+        });
+        
+        console.log(`HBIC ${playerName} initialized`);
+    }
+    
+    // Initialize both players
+    initializePlayer(video1, playPauseBtn1, muteBtn1, 'Section 3 Player 1');
+    initializePlayer(video2, playPauseBtn2, muteBtn2, 'Section 3 Player 2');
+}
+
+// Load HBIC YouTube videos into grid
+function loadHBICYouTubeVideos() {
+    console.log('Loading HBIC YouTube video gallery...');
+    
+    const youtubeGrid = document.getElementById('youtube-grid');
+    if (!youtubeGrid) {
+        console.error('YouTube grid not found');
+        return;
+    }
+    
+    // YouTube video IDs from the iframes you provided
+    const youtubeVideos = [
+        '7-uqwWeN9gk',
+        'juSRCR72DWQ', 
+        '1Lc2SXLUKjQ',
+        'rcINajYabxI',
+        'UVsr3eR1kZw',
+        '0vZph7SfhA8',
+        '7-uqwWeN9gk', // Duplicate as provided
+        'KSM95233MUs',
+        'xgca_UJOq84',
+        'p0QluCN5qVY',
+        'GGzzbJcunhE',
+        '1iyAZDEfZgA'
+    ];
+    
+    youtubeVideos.forEach((videoId, index) => {
+        const videoItem = document.createElement('div');
+        videoItem.className = 'youtube-video-item';
+        
+        const iframe = document.createElement('iframe');
+        iframe.src = `https://www.youtube.com/embed/${videoId}?si=${Math.random().toString(36).substr(2, 16)}`;
+        iframe.title = `HBIC Tutorial Video ${index + 1}`;
+        iframe.frameBorder = '0';
+        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+        iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+        iframe.allowFullscreen = true;
+        
+        videoItem.appendChild(iframe);
+        youtubeGrid.appendChild(videoItem);
+    });
+    
+    console.log(`Loaded ${youtubeVideos.length} HBIC YouTube videos`);
 }
